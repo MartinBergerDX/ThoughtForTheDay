@@ -11,9 +11,11 @@ import UIKit
 
 class QuoteTableController: NSObject, UITableViewDataSource {
     let tableView: UITableView!
+    var dataProvider: QuoteDataProvider
     
-    init(with tableView: UITableView!) {
+    init(with tableView: UITableView!, quoteDataProvider: QuoteDataProvider) {
         self.tableView = tableView
+        self.dataProvider = quoteDataProvider
         super.init()
         setupTableView(tableView: tableView)
     }
@@ -25,7 +27,7 @@ class QuoteTableController: NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: QuoteTableViewCell = tableView.dequeueReusableCell(withIdentifier: String(describing: QuoteTableViewCell.self)) as! QuoteTableViewCell
-        cell.quoteLabel?.text = "ABC"
+        cell.quoteLabel?.text = self.dataProvider.quote(atIndex: indexPath.row)
         return cell
     }
     
@@ -34,7 +36,7 @@ class QuoteTableController: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.dataProvider.count()
     }
     
 }

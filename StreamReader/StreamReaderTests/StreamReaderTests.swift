@@ -36,8 +36,46 @@ class StreamReaderTests: XCTestCase {
         XCTAssertTrue(self.streamReader.buffer.count > 0)
     }
     
-    func testReadFirstLine() {
+    func testReadOneLine() {
         let line: String = self.streamReader.readLine()
         XCTAssertTrue(line == "Line 1")
+    }
+    
+    func testReadTwoLines() {
+        let line1: String = self.streamReader.readLine()
+        XCTAssertTrue(line1 == "Line 1")
+        let line2: String = self.streamReader.readLine()
+        XCTAssertTrue(line2 == "Line 2")
+    }
+    
+    func testReadAllLines() {
+        let line1: String = self.streamReader.readLine()
+        XCTAssertTrue(line1 == "Line 1")
+        let line2: String = self.streamReader.readLine()
+        XCTAssertTrue(line2 == "Line 2")
+        let line3: String = self.streamReader.readLine()
+        XCTAssertTrue(line3 == "Line 3")
+        let line4: String = self.streamReader.readLine()
+        XCTAssertTrue(line4 == "Line 4")
+        let line5: String = self.streamReader.readLine()
+        XCTAssertTrue(line5 == "Line 5 Long long long long long line")
+        let line6: String = self.streamReader.readLine()
+        XCTAssertTrue(line6 == "Line 6")
+    }
+    
+    func testReadAllLinesWithSmallBuffer() {
+        let streamReader: StreamReader = StreamReader.init(url: self.fileUrl, delimiter: "\n", chunkSize: 10, encoding: .utf8)
+        let line1: String = streamReader.readLine()
+        XCTAssertTrue(line1 == "Line 1")
+        let line2: String = streamReader.readLine()
+        XCTAssertTrue(line2 == "Line 2")
+        let line3: String = streamReader.readLine()
+        XCTAssertTrue(line3 == "Line 3")
+        let line4: String = streamReader.readLine()
+        XCTAssertTrue(line4 == "Line 4")
+        let line5: String = streamReader.readLine()
+        XCTAssertTrue(line5 == "Line 5 Long long long long long line")
+        let line6: String = streamReader.readLine()
+        XCTAssertTrue(line6 == "Line 6")
     }
 }
