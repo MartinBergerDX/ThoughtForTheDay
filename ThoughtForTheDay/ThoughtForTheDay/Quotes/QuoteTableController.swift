@@ -11,9 +11,9 @@ import UIKit
 
 class QuoteTableController: NSObject, UITableViewDataSource {
     let tableView: UITableView!
-    var dataProvider: QuoteDataProvider
+    var dataProvider: IndexedQuoteDataProviderProtocol
     
-    init(with tableView: UITableView!, quoteDataProvider: QuoteDataProvider) {
+    init(with tableView: UITableView!, quoteDataProvider: IndexedQuoteDataProviderProtocol) {
         self.tableView = tableView
         self.dataProvider = quoteDataProvider
         super.init()

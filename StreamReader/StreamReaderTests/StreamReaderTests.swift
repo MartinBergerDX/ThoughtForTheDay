@@ -10,13 +10,13 @@ import XCTest
 @testable import StreamReader
 
 class StreamReaderTests: XCTestCase {
-    var streamReader: StreamReader = StreamReader.null
+    var streamReader: TDStreamReader = TDStreamReader.null
     var fileUrl: URL = URL.init(fileURLWithPath: "")
     
     override func setUp() {
         super.setUp()
         self.fileUrl = Bundle(for: type(of: self)).url(forResource: "TestText", withExtension: "txt") ?? URL.init(fileURLWithPath: "")
-        self.streamReader = StreamReader(url: self.fileUrl)
+        self.streamReader = TDStreamReader(url: self.fileUrl)
     }
     
     override func tearDown() {
@@ -64,7 +64,7 @@ class StreamReaderTests: XCTestCase {
     }
     
     func testReadAllLinesWithSmallBuffer() {
-        let streamReader: StreamReader = StreamReader.init(url: self.fileUrl, delimiter: "\n", chunkSize: 10, encoding: .utf8)
+        let streamReader: TDStreamReader = TDStreamReader.init(url: self.fileUrl, delimiter: "\n", chunkSize: 10, encoding: .utf8)
         let line1: String = streamReader.readLine()
         XCTAssertTrue(line1 == "Line 1")
         let line2: String = streamReader.readLine()

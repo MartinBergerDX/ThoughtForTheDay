@@ -10,9 +10,8 @@ import UIKit
 
 class QuoteViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
-    let quoteDataProvider: QuoteDataProvider = QuoteDataProvider()
+    let quoteDataProvider: IndexedQuoteDataProviderProtocol = QuoteDataProvider(textFileName: Constants.fileName)
     var tableController: QuoteTableController?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

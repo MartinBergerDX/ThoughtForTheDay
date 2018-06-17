@@ -10,7 +10,7 @@
 		5BB4A33920CEB74F00AFC21E /* StreamReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB4A32F20CEB74F00AFC21E /* StreamReader.framework */; };
 		5BB4A33E20CEB74F00AFC21E /* StreamReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB4A33D20CEB74F00AFC21E /* StreamReaderTests.swift */; };
 		5BB4A34020CEB74F00AFC21E /* StreamReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BB4A33220CEB74F00AFC21E /* StreamReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5BFF5AF320CEBCEA0068FD31 /* StreamReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF5AF220CEBCEA0068FD31 /* StreamReader.swift */; };
+		5BFF5AF320CEBCEA0068FD31 /* TDStreamReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF5AF220CEBCEA0068FD31 /* TDStreamReader.swift */; };
 		5BFF5AFC20CECA0F0068FD31 /* TestText.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5BFF5AFB20CECA0F0068FD31 /* TestText.txt */; };
 /* End PBXBuildFile section */
 
@@ -31,7 +31,7 @@
 		5BB4A33820CEB74F00AFC21E /* StreamReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StreamReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BB4A33D20CEB74F00AFC21E /* StreamReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamReaderTests.swift; sourceTree = "<group>"; };
 		5BB4A33F20CEB74F00AFC21E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5BFF5AF220CEBCEA0068FD31 /* StreamReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamReader.swift; sourceTree = "<group>"; };
+		5BFF5AF220CEBCEA0068FD31 /* TDStreamReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDStreamReader.swift; sourceTree = "<group>"; };
 		5BFF5AFB20CECA0F0068FD31 /* TestText.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TestText.txt; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -75,7 +75,7 @@
 		5BB4A33120CEB74F00AFC21E /* StreamReader */ = {
 			isa = PBXGroup;
 			children = (
-				5BFF5AF220CEBCEA0068FD31 /* StreamReader.swift */,
+				5BFF5AF220CEBCEA0068FD31 /* TDStreamReader.swift */,
 				5BB4A33220CEB74F00AFC21E /* StreamReader.h */,
 				5BB4A33320CEB74F00AFC21E /* Info.plist */,
 			);
@@ -202,7 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BFF5AF320CEBCEA0068FD31 /* StreamReader.swift in Sources */,
+				5BFF5AF320CEBCEA0068FD31 /* TDStreamReader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

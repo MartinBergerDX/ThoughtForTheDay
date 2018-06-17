@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  StreamReader
+//  TDStreamReader
 //
 //  Created by Martin on 6/11/18.
 //  Copyright © 2018 heavydebugging. All rights reserved.
@@ -9,13 +9,14 @@
 import Foundation
 
 public protocol StreamReaderProtocol {
+    var eof: Bool { get }
     func isValid() -> Bool
     func readLine() -> String
-    var eof: Bool { get }
+    func reset()
 }
 
-public class StreamReader : StreamReaderProtocol {
-    public static let null: StreamReader = StreamReader.init()
+public class TDStreamReader : StreamReaderProtocol {
+    public static let null: TDStreamReader = TDStreamReader.init()
     var fileUrl: URL = URL.init(fileURLWithPath: "")
     var bufferSize: Int = 0
     var chunkSize: Int = 0
@@ -77,5 +78,10 @@ public class StreamReader : StreamReaderProtocol {
         self.eof = (newData.count == 0)
         buffer.append(newData)
         return self.eof == false
+    }
+    
+    public func reset() {
+        self.fileHandle.seek(toFileOffset: 0)
+        self.eof = false
     }
 }

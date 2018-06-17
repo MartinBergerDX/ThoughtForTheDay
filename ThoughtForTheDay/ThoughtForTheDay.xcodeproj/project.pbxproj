@@ -15,12 +15,32 @@
 		5B07244020CA91BF000B3B16 /* QuoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B07243F20CA91BF000B3B16 /* QuoteTableViewCell.xib */; };
 		5B1D8D5F20D0225300DF447D /* StreamReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1D8D5E20D0225300DF447D /* StreamReader.framework */; };
 		5B695D9320D1464B00D4DBDC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B695D9220D1464B00D4DBDC /* Images.xcassets */; };
+		5B84EE6320D579E00023349C /* Quotes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5BB4A35A20CEB86700AFC21E /* Quotes.txt */; };
 		5BB4A35720CEB85B00AFC21E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BB4A35320CEB85B00AFC21E /* LaunchScreen.storyboard */; };
 		5BB4A35820CEB85B00AFC21E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BB4A35520CEB85B00AFC21E /* Main.storyboard */; };
-		5BB4A35B20CEB86700AFC21E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BB4A35920CEB86700AFC21E /* Info.plist */; };
 		5BB4A35C20CEB86700AFC21E /* Quotes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5BB4A35A20CEB86700AFC21E /* Quotes.txt */; };
+		5BBA566D20D3D211000462B6 /* QuoteNotificationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBA566C20D3D211000462B6 /* QuoteNotificationFactory.swift */; };
+		5BBA566E20D3FE1C000462B6 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF616F520D1648900CC7BD7 /* NotificationService.swift */; };
+		5BBA566F20D3FE31000462B6 /* QuoteDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B07241920B9BCF0000B3B16 /* QuoteDataProvider.swift */; };
+		5BBA567020D3FE77000462B6 /* QuoteNotificationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBA566C20D3D211000462B6 /* QuoteNotificationFactory.swift */; };
+		5BBA567120D3FFE5000462B6 /* ServiceRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF6172820D2D72F00CC7BD7 /* ServiceRegistry.swift */; };
+		5BBA567320D40082000462B6 /* MockRandomQuoteDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBA567220D40082000462B6 /* MockRandomQuoteDataProvider.swift */; };
 		5BF616F220D152F800CC7BD7 /* StreamReader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1D8D5E20D0225300DF447D /* StreamReader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5BF616F620D1648900CC7BD7 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF616F520D1648900CC7BD7 /* NotificationService.swift */; };
+		5BF616FE20D16DCD00CC7BD7 /* NotificationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF616FD20D16DCD00CC7BD7 /* NotificationServiceTests.swift */; };
+		5BF6172920D2D72F00CC7BD7 /* ServiceRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF6172820D2D72F00CC7BD7 /* ServiceRegistry.swift */; };
+		5BFF7F0320D565D9009BA777 /* MockUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF7F0220D565D9009BA777 /* MockUserNotificationCenter.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5BF6170020D16DCD00CC7BD7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5B0723F820B986E7000B3B16 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5B0723FF20B986E7000B3B16;
+			remoteInfo = ThoughtForTheDay;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		5BF616F320D152F800CC7BD7 /* Embed Frameworks */ = {
@@ -50,6 +70,14 @@
 		5BB4A35620CEB85B00AFC21E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ThoughtForTheDay/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5BB4A35920CEB86700AFC21E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BB4A35A20CEB86700AFC21E /* Quotes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Quotes.txt; sourceTree = "<group>"; };
+		5BBA566C20D3D211000462B6 /* QuoteNotificationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteNotificationFactory.swift; sourceTree = "<group>"; };
+		5BBA567220D40082000462B6 /* MockRandomQuoteDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRandomQuoteDataProvider.swift; sourceTree = "<group>"; };
+		5BF616F520D1648900CC7BD7 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		5BF616FB20D16DCC00CC7BD7 /* ThoughtForTheDayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThoughtForTheDayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BF616FD20D16DCD00CC7BD7 /* NotificationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationServiceTests.swift; sourceTree = "<group>"; };
+		5BF616FF20D16DCD00CC7BD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BF6172820D2D72F00CC7BD7 /* ServiceRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRegistry.swift; sourceTree = "<group>"; };
+		5BFF7F0220D565D9009BA777 /* MockUserNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserNotificationCenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +89,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5BF616F820D16DCC00CC7BD7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -69,6 +104,7 @@
 			children = (
 				5B07240220B986E7000B3B16 /* ThoughtForTheDay */,
 				5BB4A35D20CEB86B00AFC21E /* Resources */,
+				5BF616FC20D16DCD00CC7BD7 /* ThoughtForTheDayTests */,
 				5B07240120B986E7000B3B16 /* Products */,
 				5B1D8D5D20D0225300DF447D /* Frameworks */,
 			);
@@ -78,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				5B07240020B986E7000B3B16 /* ThoughtForTheDay.app */,
+				5BF616FB20D16DCC00CC7BD7 /* ThoughtForTheDayTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -87,7 +124,7 @@
 			children = (
 				5B07240320B986E7000B3B16 /* AppDelegate.swift */,
 				5B07244120CAA2C0000B3B16 /* Quotes */,
-				5BF616F420D1639C00CC7BD7 /* NotificationScheduler */,
+				5BF6172720D2D70700CC7BD7 /* Services */,
 			);
 			path = ThoughtForTheDay;
 			sourceTree = "<group>";
@@ -133,11 +170,33 @@
 			path = ThoughtForTheDay;
 			sourceTree = "<group>";
 		};
-		5BF616F420D1639C00CC7BD7 /* NotificationScheduler */ = {
+		5BF616F420D1639C00CC7BD7 /* NotificationService */ = {
 			isa = PBXGroup;
 			children = (
+				5BF616F520D1648900CC7BD7 /* NotificationService.swift */,
+				5BBA566C20D3D211000462B6 /* QuoteNotificationFactory.swift */,
 			);
-			path = NotificationScheduler;
+			path = NotificationService;
+			sourceTree = "<group>";
+		};
+		5BF616FC20D16DCD00CC7BD7 /* ThoughtForTheDayTests */ = {
+			isa = PBXGroup;
+			children = (
+				5BBA567220D40082000462B6 /* MockRandomQuoteDataProvider.swift */,
+				5BFF7F0220D565D9009BA777 /* MockUserNotificationCenter.swift */,
+				5BF616FD20D16DCD00CC7BD7 /* NotificationServiceTests.swift */,
+				5BF616FF20D16DCD00CC7BD7 /* Info.plist */,
+			);
+			path = ThoughtForTheDayTests;
+			sourceTree = "<group>";
+		};
+		5BF6172720D2D70700CC7BD7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5BF6172820D2D72F00CC7BD7 /* ServiceRegistry.swift */,
+				5BF616F420D1639C00CC7BD7 /* NotificationService */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,18 +220,40 @@
 			productReference = 5B07240020B986E7000B3B16 /* ThoughtForTheDay.app */;
 			productType = "com.apple.product-type.application";
 		};
+		5BF616FA20D16DCC00CC7BD7 /* ThoughtForTheDayTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5BF6170220D16DCD00CC7BD7 /* Build configuration list for PBXNativeTarget "ThoughtForTheDayTests" */;
+			buildPhases = (
+				5BF616F720D16DCC00CC7BD7 /* Sources */,
+				5BF616F820D16DCC00CC7BD7 /* Frameworks */,
+				5BF616F920D16DCC00CC7BD7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5BF6170120D16DCD00CC7BD7 /* PBXTargetDependency */,
+			);
+			name = ThoughtForTheDayTests;
+			productName = ThoughtForTheDayTests;
+			productReference = 5BF616FB20D16DCC00CC7BD7 /* ThoughtForTheDayTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		5B0723F820B986E7000B3B16 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = heavydebugging;
 				TargetAttributes = {
 					5B0723FF20B986E7000B3B16 = {
 						CreatedOnToolsVersion = 9.3;
+					};
+					5BF616FA20D16DCC00CC7BD7 = {
+						CreatedOnToolsVersion = 9.4;
+						TestTargetID = 5B0723FF20B986E7000B3B16;
 					};
 				};
 			};
@@ -190,6 +271,7 @@
 			projectRoot = "";
 			targets = (
 				5B0723FF20B986E7000B3B16 /* ThoughtForTheDay */,
+				5BF616FA20D16DCC00CC7BD7 /* ThoughtForTheDayTests */,
 			);
 		};
 /* End PBXProject section */
@@ -199,12 +281,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BB4A35B20CEB86700AFC21E /* Info.plist in Resources */,
 				5BB4A35C20CEB86700AFC21E /* Quotes.txt in Resources */,
 				5BB4A35820CEB85B00AFC21E /* Main.storyboard in Resources */,
 				5B695D9320D1464B00D4DBDC /* Images.xcassets in Resources */,
 				5B07244020CA91BF000B3B16 /* QuoteTableViewCell.xib in Resources */,
 				5BB4A35720CEB85B00AFC21E /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BF616F920D16DCC00CC7BD7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B84EE6320D579E00023349C /* Quotes.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,13 +306,38 @@
 			files = (
 				5B07241820B9BCD9000B3B16 /* QuoteTableController.swift in Sources */,
 				5B07241A20B9BCF0000B3B16 /* QuoteDataProvider.swift in Sources */,
+				5BF616F620D1648900CC7BD7 /* NotificationService.swift in Sources */,
+				5BF6172920D2D72F00CC7BD7 /* ServiceRegistry.swift in Sources */,
 				5B07240620B986E7000B3B16 /* QuoteViewController.swift in Sources */,
 				5B07240420B986E7000B3B16 /* AppDelegate.swift in Sources */,
+				5BBA566D20D3D211000462B6 /* QuoteNotificationFactory.swift in Sources */,
 				5B07243E20CA91B2000B3B16 /* QuoteTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5BF616F720D16DCC00CC7BD7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BBA567120D3FFE5000462B6 /* ServiceRegistry.swift in Sources */,
+				5BBA566F20D3FE31000462B6 /* QuoteDataProvider.swift in Sources */,
+				5BFF7F0320D565D9009BA777 /* MockUserNotificationCenter.swift in Sources */,
+				5BBA566E20D3FE1C000462B6 /* NotificationService.swift in Sources */,
+				5BBA567020D3FE77000462B6 /* QuoteNotificationFactory.swift in Sources */,
+				5BBA567320D40082000462B6 /* MockRandomQuoteDataProvider.swift in Sources */,
+				5BF616FE20D16DCD00CC7BD7 /* NotificationServiceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5BF6170120D16DCD00CC7BD7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5B0723FF20B986E7000B3B16 /* ThoughtForTheDay */;
+			targetProxy = 5BF6170020D16DCD00CC7BD7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5BB4A35320CEB85B00AFC21E /* LaunchScreen.storyboard */ = {
@@ -399,6 +513,46 @@
 			};
 			name = Release;
 		};
+		5BF6170320D16DCD00CC7BD7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ThoughtForTheDayTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.heavydebugging.streamreader.ThoughtForTheDayTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ThoughtForTheDay.app/ThoughtForTheDay";
+			};
+			name = Debug;
+		};
+		5BF6170420D16DCD00CC7BD7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ThoughtForTheDayTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.heavydebugging.streamreader.ThoughtForTheDayTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ThoughtForTheDay.app/ThoughtForTheDay";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -416,6 +570,15 @@
 			buildConfigurations = (
 				5B07241320B986E8000B3B16 /* Debug */,
 				5B07241420B986E8000B3B16 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5BF6170220D16DCD00CC7BD7 /* Build configuration list for PBXNativeTarget "ThoughtForTheDayTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BF6170320D16DCD00CC7BD7 /* Debug */,
+				5BF6170420D16DCD00CC7BD7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
