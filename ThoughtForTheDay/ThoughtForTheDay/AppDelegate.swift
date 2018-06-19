@@ -35,9 +35,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        components.minute = 0
 //        let nextDate = Calendar.autoupdatingCurrent.nextDate(after: today, matching: components, matchingPolicy: Calendar.MatchingPolicy.nextTime) ?? today
 //        print(dateFormatter.string(from: nextDate))
+        ServiceRegistry.shared.notification.register()
         return true
     }
-
+    
     func applicationWillResignActive(_ application: UIApplication) {
 
     }

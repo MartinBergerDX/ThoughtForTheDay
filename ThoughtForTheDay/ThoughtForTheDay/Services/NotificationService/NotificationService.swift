@@ -11,25 +11,29 @@ import UserNotifications
 
 protocol TDNotificationServiceProtocol {
     func scheduleImperialWisdom()
+    func register()
 }
 
-class NotificationService: TDNotificationServiceProtocol {
+class NotificationService: NSObject, TDNotificationServiceProtocol {
     static var null: TDNotificationServiceProtocol = NotificationService()
     var dataProvider: RandomQuoteDataProviderProtocol = QuoteDataProvider.null
-    var notificationCentar: UserNotificationCenterProtocol = UNUserNotificationCenter.current()
+    var notificationCenter: UserNotificationCenterProtocol = UNUserNotificationCenter.current()
     static let maxNotifications: Int = 64
+    fileprivate static let hour = 14
+    fileprivate static let minute = 00
     
-    init () {
+    override init() {
         
     }
     
     init(quoteDataProvider: RandomQuoteDataProviderProtocol, notificationCenter: UserNotificationCenterProtocol) {
+        super.init()
         self.dataProvider = quoteDataProvider
-        self.notificationCentar = notificationCenter
+        self.notificationCenter = notificationCenter
     }
     
     func scheduleImperialWisdom() {
-        self.notificationCentar.getPendingNotificationRequests { [unowned self] (pendingNotificationRequests: [UNNotificationRequest]) in
+        self.notificationCenter.getPendingNotificationRequests { [unowned self] (pendingNotificationRequests: [UNNotificationRequest]) in
             self.process(pendingNotificationRequests: pendingNotificationRequests)
         }
     }
@@ -61,7 +65,8 @@ class NotificationService: TDNotificationServiceProtocol {
             return today
         }
         var components = DateComponents.init()
-        components.hour = 14
+        components.hour = NotificationService.hour
+        components.minute = NotificationService.minute
         if let nextDate = Calendar.autoupdatingCurrent.nextDate(after: date, matching: components, matchingPolicy: Calendar.MatchingPolicy.nextTime) {
             return nextDate
         }
@@ -70,9 +75,10 @@ class NotificationService: TDNotificationServiceProtocol {
     
     func scheduleNotifications(startDate: Date, remaining: inout Int) {
         var dates: [Date] = []
-        var dateComponents: DateComponents = DateComponents.init()
-        dateComponents.hour = 14
-        Calendar.autoupdatingCurrent.enumerateDates(startingAfter: startDate, matching: dateComponents, matchingPolicy: Calendar.MatchingPolicy.nextTime, using: { (date: Date?, unknown: Bool, stop: inout Bool) in
+        var components: DateComponents = DateComponents.init()
+        components.hour = NotificationService.hour
+        components.minute = NotificationService.minute
+        Calendar.autoupdatingCurrent.enumerateDates(startingAfter: startDate, matching: components, matchingPolicy: Calendar.MatchingPolicy.nextTime, using: { (date: Date?, unknown: Bool, stop: inout Bool) in
             guard let theDate = date else {
                 return
             }
@@ -83,12 +89,15 @@ class NotificationService: TDNotificationServiceProtocol {
             }
         })
         
+        let factory = QuoteNotificationFactory.init()
         for date: Date in dates {
             let quote: String = self.dataProvider.popRandomQuote()
             let c = self.requiredComponents()
-            let dateComponents = Calendar.autoupdatingCurrent.dateComponents(c, from: date)
-            let trigger: UNCalendarNotificationTrigger = UNCalendarNotificationTrigger.init(dateMatching: dateComponents, repeats: false)
-            let request = QuoteNotificationFactory.init().imperialQuote(imperialQuote: quote, trigger: trigger)
+            var components = Calendar.autoupdatingCurrent.dateComponents(c, from: date)
+            components.hour = NotificationService.hour
+            components.minute = NotificationService.minute
+            let trigger: UNCalendarNotificationTrigger = UNCalendarNotificationTrigger.init(dateMatching: components, repeats: false)
+            let request = factory.imperialQuote(imperialQuote: quote, trigger: trigger)
             self.schedule(request: request)
         }
     }
@@ -98,7 +107,7 @@ class NotificationService: TDNotificationServiceProtocol {
     }
     
     func schedule(request: UNNotificationRequest) {
-        self.notificationCentar.add(request) { (error : Error?) in
+        self.notificationCenter.add(request) { (error : Error?) in
             if let theError = error {
                 print(theError.localizedDescription)
             }
@@ -119,6 +128,19 @@ class NotificationService: TDNotificationServiceProtocol {
             print(dateFormatter.string(from: date) + " " + request.content.body)
         }
     }
+    
+    func register() {
+        if let nc = self.notificationCenter as? UNUserNotificationCenter {
+            nc.delegate = self
+        }
+        
+        let options: UNAuthorizationOptions = [.alert]
+        UNUserNotificationCenter.current().requestAuthorization(options: options) { (granted: Bool, error: Error?) in
+            if granted == false {
+                print("Failed to register local notifications.")
+            }
+        }
+    }
 }
 
 protocol UserNotificationCenterProtocol {
@@ -126,6 +148,13 @@ protocol UserNotificationCenterProtocol {
     func getPendingNotificationRequests(completionHandler: @escaping ([UNNotificationRequest]) -> Void)
 }
 
-extension UNUserNotificationCenter : UserNotificationCenterProtocol {
+extension UNUserNotificationCenter: UserNotificationCenterProtocol {
     
+}
+
+extension NotificationService: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        print("Received local notification: " + notification.request.content.body)
+        completionHandler(.alert)
+    }
 }
