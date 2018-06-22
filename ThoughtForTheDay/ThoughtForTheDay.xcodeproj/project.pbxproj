@@ -14,6 +14,9 @@
 		5B07243E20CA91B2000B3B16 /* QuoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B07243D20CA91B2000B3B16 /* QuoteTableViewCell.swift */; };
 		5B07244020CA91BF000B3B16 /* QuoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B07243F20CA91BF000B3B16 /* QuoteTableViewCell.xib */; };
 		5B1D8D5F20D0225300DF447D /* StreamReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1D8D5E20D0225300DF447D /* StreamReader.framework */; };
+		5B1FEEA720DA82BC00B50721 /* FileLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1FEEA620DA82BC00B50721 /* FileLogger.swift */; };
+		5B4E3D3E20DA8AF4002E77CC /* FileLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1FEEA620DA82BC00B50721 /* FileLogger.swift */; };
+		5B4E3D4120DAA30D002E77CC /* UpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4E3D4020DAA30D002E77CC /* UpdateService.swift */; };
 		5B695D9320D1464B00D4DBDC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B695D9220D1464B00D4DBDC /* Images.xcassets */; };
 		5B84EE6320D579E00023349C /* Quotes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5BB4A35A20CEB86700AFC21E /* Quotes.txt */; };
 		5BB4A35720CEB85B00AFC21E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BB4A35320CEB85B00AFC21E /* LaunchScreen.storyboard */; };
@@ -65,6 +68,8 @@
 		5B07243D20CA91B2000B3B16 /* QuoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuoteTableViewCell.swift; path = ThoughtForTheDay/Quotes/Cell/QuoteTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		5B07243F20CA91BF000B3B16 /* QuoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = QuoteTableViewCell.xib; path = ThoughtForTheDay/Quotes/Cell/QuoteTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		5B1D8D5E20D0225300DF447D /* StreamReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StreamReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B1FEEA620DA82BC00B50721 /* FileLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileLogger.swift; sourceTree = "<group>"; };
+		5B4E3D4020DAA30D002E77CC /* UpdateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateService.swift; sourceTree = "<group>"; };
 		5B695D9220D1464B00D4DBDC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5BB4A35420CEB85B00AFC21E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ThoughtForTheDay/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BB4A35620CEB85B00AFC21E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ThoughtForTheDay/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -125,6 +130,7 @@
 				5B07240320B986E7000B3B16 /* AppDelegate.swift */,
 				5B07244120CAA2C0000B3B16 /* Quotes */,
 				5BF6172720D2D70700CC7BD7 /* Services */,
+				5B1FEEA520DA746800B50721 /* FileLogger */,
 			);
 			path = ThoughtForTheDay;
 			sourceTree = "<group>";
@@ -155,6 +161,22 @@
 				5B1D8D5E20D0225300DF447D /* StreamReader.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5B1FEEA520DA746800B50721 /* FileLogger */ = {
+			isa = PBXGroup;
+			children = (
+				5B1FEEA620DA82BC00B50721 /* FileLogger.swift */,
+			);
+			path = FileLogger;
+			sourceTree = "<group>";
+		};
+		5B4E3D3F20DAA2EF002E77CC /* UpdateService */ = {
+			isa = PBXGroup;
+			children = (
+				5B4E3D4020DAA30D002E77CC /* UpdateService.swift */,
+			);
+			path = UpdateService;
 			sourceTree = "<group>";
 		};
 		5BB4A35D20CEB86B00AFC21E /* Resources */ = {
@@ -195,6 +217,7 @@
 			children = (
 				5BF6172820D2D72F00CC7BD7 /* ServiceRegistry.swift */,
 				5BF616F420D1639C00CC7BD7 /* NotificationService */,
+				5B4E3D3F20DAA2EF002E77CC /* UpdateService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -250,6 +273,11 @@
 				TargetAttributes = {
 					5B0723FF20B986E7000B3B16 = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					5BF616FA20D16DCC00CC7BD7 = {
 						CreatedOnToolsVersion = 9.4;
@@ -308,8 +336,10 @@
 				5B07241A20B9BCF0000B3B16 /* QuoteDataProvider.swift in Sources */,
 				5BF616F620D1648900CC7BD7 /* NotificationService.swift in Sources */,
 				5BF6172920D2D72F00CC7BD7 /* ServiceRegistry.swift in Sources */,
+				5B4E3D4120DAA30D002E77CC /* UpdateService.swift in Sources */,
 				5B07240620B986E7000B3B16 /* QuoteViewController.swift in Sources */,
 				5B07240420B986E7000B3B16 /* AppDelegate.swift in Sources */,
+				5B1FEEA720DA82BC00B50721 /* FileLogger.swift in Sources */,
 				5BBA566D20D3D211000462B6 /* QuoteNotificationFactory.swift in Sources */,
 				5B07243E20CA91B2000B3B16 /* QuoteTableViewCell.swift in Sources */,
 			);
@@ -322,6 +352,7 @@
 				5BBA567120D3FFE5000462B6 /* ServiceRegistry.swift in Sources */,
 				5BBA566F20D3FE31000462B6 /* QuoteDataProvider.swift in Sources */,
 				5BFF7F0320D565D9009BA777 /* MockUserNotificationCenter.swift in Sources */,
+				5B4E3D3E20DA8AF4002E77CC /* FileLogger.swift in Sources */,
 				5BBA566E20D3FE1C000462B6 /* NotificationService.swift in Sources */,
 				5BBA567020D3FE77000462B6 /* QuoteNotificationFactory.swift in Sources */,
 				5BBA567320D40082000462B6 /* MockRandomQuoteDataProvider.swift in Sources */,
@@ -518,6 +549,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BE4CWML7BN;
 				INFOPLIST_FILE = ThoughtForTheDayTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -538,6 +570,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BE4CWML7BN;
 				INFOPLIST_FILE = ThoughtForTheDayTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (

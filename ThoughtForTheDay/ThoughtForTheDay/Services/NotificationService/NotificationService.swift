@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import UserNotifications
 
 protocol TDNotificationServiceProtocol {
@@ -15,12 +16,14 @@ protocol TDNotificationServiceProtocol {
 }
 
 class NotificationService: NSObject, TDNotificationServiceProtocol {
-    static var null: TDNotificationServiceProtocol = NotificationService()
-    var dataProvider: RandomQuoteDataProviderProtocol = QuoteDataProvider.null
-    var notificationCenter: UserNotificationCenterProtocol = UNUserNotificationCenter.current()
-    static let maxNotifications: Int = 64
     fileprivate static let hour = 14
     fileprivate static let minute = 00
+    static let maxNotifications: Int = 64
+    static var null: TDNotificationServiceProtocol = NotificationService()
+
+    var dataProvider: RandomQuoteDataProviderProtocol = QuoteDataProvider.null
+    var notificationCenter: UserNotificationCenterProtocol = UNUserNotificationCenter.current()
+    var logger: FileLogger = FileLogger.logger
     
     override init() {
         
@@ -39,12 +42,11 @@ class NotificationService: NSObject, TDNotificationServiceProtocol {
     }
     
     fileprivate func process(pendingNotificationRequests: [UNNotificationRequest]) {
-        // filter by category
         let pending = pendingNotificationRequests.filter({ $0.content.categoryIdentifier == QuoteNotificationFactory.categoryIdentifier })
         printScheduled(requests: pending)
         var remaining: Int = NotificationService.maxNotifications - pending.count
         if remaining == 0 {
-            print("Max amount of notifications scheduled: \(NotificationService.maxNotifications), so no new notifications will be scheduled now.")
+            print("Max notifications scheduled.")
             return
         }
         var startDate: Date = Date.init()
@@ -73,7 +75,7 @@ class NotificationService: NSObject, TDNotificationServiceProtocol {
         return today
     }
     
-    func scheduleNotifications(startDate: Date, remaining: inout Int) {
+    fileprivate func scheduleNotifications(startDate: Date, remaining: inout Int) {
         var dates: [Date] = []
         var components: DateComponents = DateComponents.init()
         components.hour = NotificationService.hour
@@ -102,11 +104,11 @@ class NotificationService: NSObject, TDNotificationServiceProtocol {
         }
     }
     
-    func requiredComponents() -> Set<Calendar.Component> {
+    fileprivate func requiredComponents() -> Set<Calendar.Component> {
         return Set<Calendar.Component>.init(arrayLiteral: Calendar.Component.year, Calendar.Component.day, Calendar.Component.month, Calendar.Component.hour, Calendar.Component.minute)
     }
     
-    func schedule(request: UNNotificationRequest) {
+    fileprivate func schedule(request: UNNotificationRequest) {
         self.notificationCenter.add(request) { (error : Error?) in
             if let theError = error {
                 print(theError.localizedDescription)
@@ -114,7 +116,7 @@ class NotificationService: NSObject, TDNotificationServiceProtocol {
         }
     }
     
-    func printScheduled(requests: [UNNotificationRequest]) {
+    fileprivate func printScheduled(requests: [UNNotificationRequest]) {
         let dateFormatter: DateFormatter = DateFormatter.init()
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .medium
@@ -129,7 +131,7 @@ class NotificationService: NSObject, TDNotificationServiceProtocol {
         }
     }
     
-    func register() {
+    public func register() {
         if let nc = self.notificationCenter as? UNUserNotificationCenter {
             nc.delegate = self
         }
@@ -154,7 +156,9 @@ extension UNUserNotificationCenter: UserNotificationCenterProtocol {
 
 extension NotificationService: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        print("Received local notification: " + notification.request.content.body)
+        let log: String = "Received local notification: " + notification.request.content.body
+        print(log)
+        print(log, to: &self.logger)
         completionHandler(.alert)
     }
 }

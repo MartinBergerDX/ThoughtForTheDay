@@ -35,12 +35,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        components.minute = 0
 //        let nextDate = Calendar.autoupdatingCurrent.nextDate(after: today, matching: components, matchingPolicy: Calendar.MatchingPolicy.nextTime) ?? today
 //        print(dateFormatter.string(from: nextDate))
+        
         ServiceRegistry.shared.notification.register()
+        ServiceRegistry.shared.update.setUpdateInterval(application)
         return true
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
-
+        
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
@@ -48,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
-
+        
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -56,9 +58,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-
+        
     }
-
-
+    
+    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Swift.Void) {
+        ServiceRegistry.shared.notification.scheduleImperialWisdom()
+        ServiceRegistry.shared.update.log()
+        completionHandler(.noData)
+    }
 }
 
