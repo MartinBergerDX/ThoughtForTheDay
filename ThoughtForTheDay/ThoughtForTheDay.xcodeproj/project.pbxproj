@@ -14,6 +14,8 @@
 		5B07244020CA91BF000B3B16 /* QuoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B07243F20CA91BF000B3B16 /* QuoteTableViewCell.xib */; };
 		5B3C863A20DD3CB5008764AB /* Services.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3C863820DD3C70008764AB /* Services.framework */; };
 		5B3C863B20DD3CB5008764AB /* Services.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3C863820DD3C70008764AB /* Services.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5B3C866420DEA813008764AB /* TriggersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3C866320DEA813008764AB /* TriggersViewController.swift */; };
+		5B3C866620DEB9CE008764AB /* PureLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3C866520DEB9CE008764AB /* PureLayout.framework */; };
 		5B695D9320D1464B00D4DBDC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B695D9220D1464B00D4DBDC /* Images.xcassets */; };
 		5BB4A35720CEB85B00AFC21E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BB4A35320CEB85B00AFC21E /* LaunchScreen.storyboard */; };
 		5BB4A35820CEB85B00AFC21E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BB4A35520CEB85B00AFC21E /* Main.storyboard */; };
@@ -55,6 +57,8 @@
 		5B07243F20CA91BF000B3B16 /* QuoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = QuoteTableViewCell.xib; path = ThoughtForTheDay/Quotes/Cell/QuoteTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		5B1D8D5E20D0225300DF447D /* StreamReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StreamReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B3C863820DD3C70008764AB /* Services.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Services.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B3C866320DEA813008764AB /* TriggersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriggersViewController.swift; sourceTree = "<group>"; };
+		5B3C866520DEB9CE008764AB /* PureLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PureLayout.framework; path = Carthage/Build/iOS/PureLayout.framework; sourceTree = "<group>"; };
 		5B695D9220D1464B00D4DBDC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5BB4A35420CEB85B00AFC21E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ThoughtForTheDay/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BB4A35620CEB85B00AFC21E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ThoughtForTheDay/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -72,6 +76,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B3C863A20DD3CB5008764AB /* Services.framework in Frameworks */,
+				5B3C866620DEB9CE008764AB /* PureLayout.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +115,7 @@
 			children = (
 				5B07240320B986E7000B3B16 /* AppDelegate.swift */,
 				5B07244120CAA2C0000B3B16 /* Quotes */,
+				5B3C866220DEA575008764AB /* TriggersViewController */,
 			);
 			path = ThoughtForTheDay;
 			sourceTree = "<group>";
@@ -136,10 +142,19 @@
 		5B1D8D5D20D0225300DF447D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5B3C866520DEB9CE008764AB /* PureLayout.framework */,
 				5B3C863820DD3C70008764AB /* Services.framework */,
 				5B1D8D5E20D0225300DF447D /* StreamReader.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5B3C866220DEA575008764AB /* TriggersViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5B3C866320DEA813008764AB /* TriggersViewController.swift */,
+			);
+			path = TriggersViewController;
 			sourceTree = "<group>";
 		};
 		5BB4A35D20CEB86B00AFC21E /* Resources */ = {
@@ -176,6 +191,7 @@
 				5B0723FD20B986E7000B3B16 /* Frameworks */,
 				5B0723FE20B986E7000B3B16 /* Resources */,
 				5BF616F320D152F800CC7BD7 /* Embed Frameworks */,
+				5B3C866720DEB9FE008764AB /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -268,6 +284,24 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5B3C866720DEB9FE008764AB /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/PureLayout.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5B0723FC20B986E7000B3B16 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -276,6 +310,7 @@
 				5B07241820B9BCD9000B3B16 /* QuoteTableController.swift in Sources */,
 				5B07240620B986E7000B3B16 /* QuoteViewController.swift in Sources */,
 				5B07240420B986E7000B3B16 /* AppDelegate.swift in Sources */,
+				5B3C866420DEA813008764AB /* TriggersViewController.swift in Sources */,
 				5B07243E20CA91B2000B3B16 /* QuoteTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,6 +476,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BE4CWML7BN;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ThoughtForTheDay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -461,6 +500,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BE4CWML7BN;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ThoughtForTheDay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
