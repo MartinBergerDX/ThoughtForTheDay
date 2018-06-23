@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import UserNotifications
 
-protocol TDNotificationServiceProtocol {
+public protocol TDNotificationServiceProtocol {
     func scheduleImperialWisdom()
     func register()
 }
@@ -35,7 +35,7 @@ class NotificationService: NSObject, TDNotificationServiceProtocol {
         self.notificationCenter = notificationCenter
     }
     
-    func scheduleImperialWisdom() {
+    public func scheduleImperialWisdom() {
         self.notificationCenter.getPendingNotificationRequests { [unowned self] (pendingNotificationRequests: [UNNotificationRequest]) in
             self.process(pendingNotificationRequests: pendingNotificationRequests)
         }

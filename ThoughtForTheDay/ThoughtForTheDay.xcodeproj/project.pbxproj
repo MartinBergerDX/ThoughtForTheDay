@@ -10,28 +10,15 @@
 		5B07240420B986E7000B3B16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B07240320B986E7000B3B16 /* AppDelegate.swift */; };
 		5B07240620B986E7000B3B16 /* QuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B07240520B986E7000B3B16 /* QuoteViewController.swift */; };
 		5B07241820B9BCD9000B3B16 /* QuoteTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B07241720B9BCD9000B3B16 /* QuoteTableController.swift */; };
-		5B07241A20B9BCF0000B3B16 /* QuoteDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B07241920B9BCF0000B3B16 /* QuoteDataProvider.swift */; };
 		5B07243E20CA91B2000B3B16 /* QuoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B07243D20CA91B2000B3B16 /* QuoteTableViewCell.swift */; };
 		5B07244020CA91BF000B3B16 /* QuoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B07243F20CA91BF000B3B16 /* QuoteTableViewCell.xib */; };
-		5B1D8D5F20D0225300DF447D /* StreamReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1D8D5E20D0225300DF447D /* StreamReader.framework */; };
-		5B1FEEA720DA82BC00B50721 /* FileLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1FEEA620DA82BC00B50721 /* FileLogger.swift */; };
-		5B4E3D3E20DA8AF4002E77CC /* FileLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1FEEA620DA82BC00B50721 /* FileLogger.swift */; };
-		5B4E3D4120DAA30D002E77CC /* UpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4E3D4020DAA30D002E77CC /* UpdateService.swift */; };
+		5B3C863A20DD3CB5008764AB /* Services.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3C863820DD3C70008764AB /* Services.framework */; };
+		5B3C863B20DD3CB5008764AB /* Services.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3C863820DD3C70008764AB /* Services.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5B695D9320D1464B00D4DBDC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B695D9220D1464B00D4DBDC /* Images.xcassets */; };
-		5B84EE6320D579E00023349C /* Quotes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5BB4A35A20CEB86700AFC21E /* Quotes.txt */; };
 		5BB4A35720CEB85B00AFC21E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BB4A35320CEB85B00AFC21E /* LaunchScreen.storyboard */; };
 		5BB4A35820CEB85B00AFC21E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BB4A35520CEB85B00AFC21E /* Main.storyboard */; };
-		5BB4A35C20CEB86700AFC21E /* Quotes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5BB4A35A20CEB86700AFC21E /* Quotes.txt */; };
-		5BBA566D20D3D211000462B6 /* QuoteNotificationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBA566C20D3D211000462B6 /* QuoteNotificationFactory.swift */; };
-		5BBA566E20D3FE1C000462B6 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF616F520D1648900CC7BD7 /* NotificationService.swift */; };
-		5BBA566F20D3FE31000462B6 /* QuoteDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B07241920B9BCF0000B3B16 /* QuoteDataProvider.swift */; };
-		5BBA567020D3FE77000462B6 /* QuoteNotificationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBA566C20D3D211000462B6 /* QuoteNotificationFactory.swift */; };
-		5BBA567120D3FFE5000462B6 /* ServiceRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF6172820D2D72F00CC7BD7 /* ServiceRegistry.swift */; };
 		5BBA567320D40082000462B6 /* MockRandomQuoteDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBA567220D40082000462B6 /* MockRandomQuoteDataProvider.swift */; };
-		5BF616F220D152F800CC7BD7 /* StreamReader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1D8D5E20D0225300DF447D /* StreamReader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5BF616F620D1648900CC7BD7 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF616F520D1648900CC7BD7 /* NotificationService.swift */; };
 		5BF616FE20D16DCD00CC7BD7 /* NotificationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF616FD20D16DCD00CC7BD7 /* NotificationServiceTests.swift */; };
-		5BF6172920D2D72F00CC7BD7 /* ServiceRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF6172820D2D72F00CC7BD7 /* ServiceRegistry.swift */; };
 		5BFF7F0320D565D9009BA777 /* MockUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF7F0220D565D9009BA777 /* MockUserNotificationCenter.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,7 +39,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5BF616F220D152F800CC7BD7 /* StreamReader.framework in Embed Frameworks */,
+				5B3C863B20DD3CB5008764AB /* Services.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -64,24 +51,18 @@
 		5B07240320B986E7000B3B16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B07240520B986E7000B3B16 /* QuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewController.swift; sourceTree = "<group>"; };
 		5B07241720B9BCD9000B3B16 /* QuoteTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuoteTableController.swift; path = ThoughtForTheDay/Quotes/QuoteTableController.swift; sourceTree = SOURCE_ROOT; };
-		5B07241920B9BCF0000B3B16 /* QuoteDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDataProvider.swift; sourceTree = "<group>"; };
 		5B07243D20CA91B2000B3B16 /* QuoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuoteTableViewCell.swift; path = ThoughtForTheDay/Quotes/Cell/QuoteTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		5B07243F20CA91BF000B3B16 /* QuoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = QuoteTableViewCell.xib; path = ThoughtForTheDay/Quotes/Cell/QuoteTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		5B1D8D5E20D0225300DF447D /* StreamReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StreamReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B1FEEA620DA82BC00B50721 /* FileLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileLogger.swift; sourceTree = "<group>"; };
-		5B4E3D4020DAA30D002E77CC /* UpdateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateService.swift; sourceTree = "<group>"; };
+		5B3C863820DD3C70008764AB /* Services.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Services.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B695D9220D1464B00D4DBDC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5BB4A35420CEB85B00AFC21E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ThoughtForTheDay/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BB4A35620CEB85B00AFC21E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ThoughtForTheDay/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5BB4A35920CEB86700AFC21E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5BB4A35A20CEB86700AFC21E /* Quotes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Quotes.txt; sourceTree = "<group>"; };
-		5BBA566C20D3D211000462B6 /* QuoteNotificationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteNotificationFactory.swift; sourceTree = "<group>"; };
 		5BBA567220D40082000462B6 /* MockRandomQuoteDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRandomQuoteDataProvider.swift; sourceTree = "<group>"; };
-		5BF616F520D1648900CC7BD7 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		5BF616FB20D16DCC00CC7BD7 /* ThoughtForTheDayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThoughtForTheDayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF616FD20D16DCD00CC7BD7 /* NotificationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationServiceTests.swift; sourceTree = "<group>"; };
 		5BF616FF20D16DCD00CC7BD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5BF6172820D2D72F00CC7BD7 /* ServiceRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRegistry.swift; sourceTree = "<group>"; };
 		5BFF7F0220D565D9009BA777 /* MockUserNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserNotificationCenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,7 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B1D8D5F20D0225300DF447D /* StreamReader.framework in Frameworks */,
+				5B3C863A20DD3CB5008764AB /* Services.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,8 +110,6 @@
 			children = (
 				5B07240320B986E7000B3B16 /* AppDelegate.swift */,
 				5B07244120CAA2C0000B3B16 /* Quotes */,
-				5BF6172720D2D70700CC7BD7 /* Services */,
-				5B1FEEA520DA746800B50721 /* FileLogger */,
 			);
 			path = ThoughtForTheDay;
 			sourceTree = "<group>";
@@ -140,7 +119,6 @@
 			children = (
 				5B07240520B986E7000B3B16 /* QuoteViewController.swift */,
 				5B07241720B9BCD9000B3B16 /* QuoteTableController.swift */,
-				5B07241920B9BCF0000B3B16 /* QuoteDataProvider.swift */,
 				5B07244220CAA2D4000B3B16 /* Cell */,
 			);
 			path = Quotes;
@@ -158,25 +136,10 @@
 		5B1D8D5D20D0225300DF447D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5B3C863820DD3C70008764AB /* Services.framework */,
 				5B1D8D5E20D0225300DF447D /* StreamReader.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		5B1FEEA520DA746800B50721 /* FileLogger */ = {
-			isa = PBXGroup;
-			children = (
-				5B1FEEA620DA82BC00B50721 /* FileLogger.swift */,
-			);
-			path = FileLogger;
-			sourceTree = "<group>";
-		};
-		5B4E3D3F20DAA2EF002E77CC /* UpdateService */ = {
-			isa = PBXGroup;
-			children = (
-				5B4E3D4020DAA30D002E77CC /* UpdateService.swift */,
-			);
-			path = UpdateService;
 			sourceTree = "<group>";
 		};
 		5BB4A35D20CEB86B00AFC21E /* Resources */ = {
@@ -186,19 +149,9 @@
 				5BB4A35320CEB85B00AFC21E /* LaunchScreen.storyboard */,
 				5BB4A35520CEB85B00AFC21E /* Main.storyboard */,
 				5BB4A35920CEB86700AFC21E /* Info.plist */,
-				5BB4A35A20CEB86700AFC21E /* Quotes.txt */,
 			);
 			name = Resources;
 			path = ThoughtForTheDay;
-			sourceTree = "<group>";
-		};
-		5BF616F420D1639C00CC7BD7 /* NotificationService */ = {
-			isa = PBXGroup;
-			children = (
-				5BF616F520D1648900CC7BD7 /* NotificationService.swift */,
-				5BBA566C20D3D211000462B6 /* QuoteNotificationFactory.swift */,
-			);
-			path = NotificationService;
 			sourceTree = "<group>";
 		};
 		5BF616FC20D16DCD00CC7BD7 /* ThoughtForTheDayTests */ = {
@@ -210,16 +163,6 @@
 				5BF616FF20D16DCD00CC7BD7 /* Info.plist */,
 			);
 			path = ThoughtForTheDayTests;
-			sourceTree = "<group>";
-		};
-		5BF6172720D2D70700CC7BD7 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				5BF6172820D2D72F00CC7BD7 /* ServiceRegistry.swift */,
-				5BF616F420D1639C00CC7BD7 /* NotificationService */,
-				5B4E3D3F20DAA2EF002E77CC /* UpdateService */,
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,7 +252,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BB4A35C20CEB86700AFC21E /* Quotes.txt in Resources */,
 				5BB4A35820CEB85B00AFC21E /* Main.storyboard in Resources */,
 				5B695D9320D1464B00D4DBDC /* Images.xcassets in Resources */,
 				5B07244020CA91BF000B3B16 /* QuoteTableViewCell.xib in Resources */,
@@ -321,7 +263,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B84EE6320D579E00023349C /* Quotes.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,14 +274,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B07241820B9BCD9000B3B16 /* QuoteTableController.swift in Sources */,
-				5B07241A20B9BCF0000B3B16 /* QuoteDataProvider.swift in Sources */,
-				5BF616F620D1648900CC7BD7 /* NotificationService.swift in Sources */,
-				5BF6172920D2D72F00CC7BD7 /* ServiceRegistry.swift in Sources */,
-				5B4E3D4120DAA30D002E77CC /* UpdateService.swift in Sources */,
 				5B07240620B986E7000B3B16 /* QuoteViewController.swift in Sources */,
 				5B07240420B986E7000B3B16 /* AppDelegate.swift in Sources */,
-				5B1FEEA720DA82BC00B50721 /* FileLogger.swift in Sources */,
-				5BBA566D20D3D211000462B6 /* QuoteNotificationFactory.swift in Sources */,
 				5B07243E20CA91B2000B3B16 /* QuoteTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,12 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BBA567120D3FFE5000462B6 /* ServiceRegistry.swift in Sources */,
-				5BBA566F20D3FE31000462B6 /* QuoteDataProvider.swift in Sources */,
 				5BFF7F0320D565D9009BA777 /* MockUserNotificationCenter.swift in Sources */,
-				5B4E3D3E20DA8AF4002E77CC /* FileLogger.swift in Sources */,
-				5BBA566E20D3FE1C000462B6 /* NotificationService.swift in Sources */,
-				5BBA567020D3FE77000462B6 /* QuoteNotificationFactory.swift in Sources */,
 				5BBA567320D40082000462B6 /* MockRandomQuoteDataProvider.swift in Sources */,
 				5BF616FE20D16DCD00CC7BD7 /* NotificationServiceTests.swift in Sources */,
 			);

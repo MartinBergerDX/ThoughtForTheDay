@@ -5,6 +5,9 @@
       location = "group:ThoughtForTheDay/ThoughtForTheDay.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:Services/Services.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:StreamReader/StreamReader.xcodeproj">
    </FileRef>
 </Workspace>

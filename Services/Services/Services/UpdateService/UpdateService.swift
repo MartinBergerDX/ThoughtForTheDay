@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-protocol UpdateServiceProtocol {
+public protocol UpdateServiceProtocol {
     func setUpdateInterval(_ application: UIApplication)
     func log()
 }

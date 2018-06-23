@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Services
 
 class QuoteTableController: NSObject, UITableViewDataSource {
     let tableView: UITableView!

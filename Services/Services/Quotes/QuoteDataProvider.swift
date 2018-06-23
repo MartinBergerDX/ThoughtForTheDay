@@ -9,20 +9,20 @@
 import Foundation
 import StreamReader
 
-protocol QuoteDataProviderProtocol {
+public protocol QuoteDataProviderProtocol {
     func count() -> Int
     func allQuotes() -> [String]
 }
 
-protocol IndexedQuoteDataProviderProtocol: QuoteDataProviderProtocol {
+public protocol IndexedQuoteDataProviderProtocol: QuoteDataProviderProtocol {
     func quote(atIndex: Int) -> String
 }
 
-protocol RandomQuoteDataProviderProtocol: QuoteDataProviderProtocol {
+public protocol RandomQuoteDataProviderProtocol: QuoteDataProviderProtocol {
     func popRandomQuote() -> String
 }
 
-class QuoteDataProvider: QuoteDataProviderProtocol {
+public class QuoteDataProvider: QuoteDataProviderProtocol {
     static let null: QuoteDataProvider = QuoteDataProvider.init()
     var quoteStreamReader: StreamReaderProtocol = TDStreamReader.null
     var fileUrl: URL = URL.init(fileURLWithPath: "")
@@ -32,7 +32,7 @@ class QuoteDataProvider: QuoteDataProviderProtocol {
         
     }
     
-    init(textFileName: String) {
+    public init(textFileName: String) {
         self.fileUrl = Bundle(for: type(of: self)).url(forResource: textFileName, withExtension: "txt") ?? URL.init(fileURLWithPath: "")
         self.quoteStreamReader = TDStreamReader.init(url: self.fileUrl)
         loadQuotes()
@@ -43,11 +43,11 @@ class QuoteDataProvider: QuoteDataProviderProtocol {
         print("Quotes loaded from text file. [\(self.quotes.count)]")
     }
     
-    internal func count() -> Int {
+    public func count() -> Int {
         return self.quotes.count
     }
     
-    internal func allQuotes() -> [String] {
+    public func allQuotes() -> [String] {
         var quotes: [String] = []
         while self.quoteStreamReader.eof != true {
             let quote: String = self.quoteStreamReader.readLine()
@@ -61,7 +61,7 @@ class QuoteDataProvider: QuoteDataProviderProtocol {
 }
 
 extension QuoteDataProvider: IndexedQuoteDataProviderProtocol {
-    internal func quote(atIndex: Int) -> String {
+    public func quote(atIndex: Int) -> String {
         if (self.quotes.count == 0) {
             return ""
         }
@@ -70,7 +70,7 @@ extension QuoteDataProvider: IndexedQuoteDataProviderProtocol {
 }
 
 extension QuoteDataProvider: RandomQuoteDataProviderProtocol {
-    internal func popRandomQuote() -> String {
+    public func popRandomQuote() -> String {
         if (self.quotes.count == 0) {
             loadQuotes()
         }
