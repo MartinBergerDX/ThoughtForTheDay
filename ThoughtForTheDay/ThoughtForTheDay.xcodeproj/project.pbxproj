@@ -12,16 +12,15 @@
 		5B07241820B9BCD9000B3B16 /* QuoteTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B07241720B9BCD9000B3B16 /* QuoteTableController.swift */; };
 		5B07243E20CA91B2000B3B16 /* QuoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B07243D20CA91B2000B3B16 /* QuoteTableViewCell.swift */; };
 		5B07244020CA91BF000B3B16 /* QuoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B07243F20CA91BF000B3B16 /* QuoteTableViewCell.xib */; };
-		5B3C863A20DD3CB5008764AB /* Services.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3C863820DD3C70008764AB /* Services.framework */; };
-		5B3C863B20DD3CB5008764AB /* Services.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3C863820DD3C70008764AB /* Services.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5B3C866420DEA813008764AB /* TriggersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3C866320DEA813008764AB /* TriggersViewController.swift */; };
 		5B3C866620DEB9CE008764AB /* PureLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3C866520DEB9CE008764AB /* PureLayout.framework */; };
 		5B695D9320D1464B00D4DBDC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B695D9220D1464B00D4DBDC /* Images.xcassets */; };
 		5BB4A35720CEB85B00AFC21E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BB4A35320CEB85B00AFC21E /* LaunchScreen.storyboard */; };
 		5BB4A35820CEB85B00AFC21E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BB4A35520CEB85B00AFC21E /* Main.storyboard */; };
-		5BBA567320D40082000462B6 /* MockRandomQuoteDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBA567220D40082000462B6 /* MockRandomQuoteDataProvider.swift */; };
-		5BF616FE20D16DCD00CC7BD7 /* NotificationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF616FD20D16DCD00CC7BD7 /* NotificationServiceTests.swift */; };
-		5BFF7F0320D565D9009BA777 /* MockUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF7F0220D565D9009BA777 /* MockUserNotificationCenter.swift */; };
+		5BC7668A20E29B870081C580 /* TriggersTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC7668920E29B860081C580 /* TriggersTableController.swift */; };
+		5BC7668D20E29DFF0081C580 /* TriggersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC7668C20E29DFF0081C580 /* TriggersTableViewCell.swift */; };
+		5BC7668F20E29E0A0081C580 /* TriggersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BC7668E20E29E0A0081C580 /* TriggersTableViewCell.xib */; };
+		5BC766C720E57F080081C580 /* Services.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BC766C620E57F080081C580 /* Services.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +40,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5B3C863B20DD3CB5008764AB /* Services.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -55,19 +53,18 @@
 		5B07241720B9BCD9000B3B16 /* QuoteTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuoteTableController.swift; path = ThoughtForTheDay/Quotes/QuoteTableController.swift; sourceTree = SOURCE_ROOT; };
 		5B07243D20CA91B2000B3B16 /* QuoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuoteTableViewCell.swift; path = ThoughtForTheDay/Quotes/Cell/QuoteTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		5B07243F20CA91BF000B3B16 /* QuoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = QuoteTableViewCell.xib; path = ThoughtForTheDay/Quotes/Cell/QuoteTableViewCell.xib; sourceTree = SOURCE_ROOT; };
-		5B1D8D5E20D0225300DF447D /* StreamReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StreamReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B3C863820DD3C70008764AB /* Services.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Services.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B3C866320DEA813008764AB /* TriggersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriggersViewController.swift; sourceTree = "<group>"; };
 		5B3C866520DEB9CE008764AB /* PureLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PureLayout.framework; path = Carthage/Build/iOS/PureLayout.framework; sourceTree = "<group>"; };
 		5B695D9220D1464B00D4DBDC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5BB4A35420CEB85B00AFC21E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ThoughtForTheDay/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BB4A35620CEB85B00AFC21E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ThoughtForTheDay/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5BB4A35920CEB86700AFC21E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5BBA567220D40082000462B6 /* MockRandomQuoteDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRandomQuoteDataProvider.swift; sourceTree = "<group>"; };
+		5BC7668920E29B860081C580 /* TriggersTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriggersTableController.swift; sourceTree = "<group>"; };
+		5BC7668C20E29DFF0081C580 /* TriggersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriggersTableViewCell.swift; sourceTree = "<group>"; };
+		5BC7668E20E29E0A0081C580 /* TriggersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TriggersTableViewCell.xib; sourceTree = "<group>"; };
+		5BC766C620E57F080081C580 /* Services.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Services.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF616FB20D16DCC00CC7BD7 /* ThoughtForTheDayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThoughtForTheDayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5BF616FD20D16DCD00CC7BD7 /* NotificationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationServiceTests.swift; sourceTree = "<group>"; };
 		5BF616FF20D16DCD00CC7BD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5BFF7F0220D565D9009BA777 /* MockUserNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserNotificationCenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B3C863A20DD3CB5008764AB /* Services.framework in Frameworks */,
+				5BC766C720E57F080081C580 /* Services.framework in Frameworks */,
 				5B3C866620DEB9CE008764AB /* PureLayout.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,9 +139,8 @@
 		5B1D8D5D20D0225300DF447D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5BC766C620E57F080081C580 /* Services.framework */,
 				5B3C866520DEB9CE008764AB /* PureLayout.framework */,
-				5B3C863820DD3C70008764AB /* Services.framework */,
-				5B1D8D5E20D0225300DF447D /* StreamReader.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -153,6 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				5B3C866320DEA813008764AB /* TriggersViewController.swift */,
+				5BC7668920E29B860081C580 /* TriggersTableController.swift */,
+				5BC7668B20E29DDE0081C580 /* Cell */,
 			);
 			path = TriggersViewController;
 			sourceTree = "<group>";
@@ -169,12 +167,18 @@
 			path = ThoughtForTheDay;
 			sourceTree = "<group>";
 		};
+		5BC7668B20E29DDE0081C580 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5BC7668C20E29DFF0081C580 /* TriggersTableViewCell.swift */,
+				5BC7668E20E29E0A0081C580 /* TriggersTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		5BF616FC20D16DCD00CC7BD7 /* ThoughtForTheDayTests */ = {
 			isa = PBXGroup;
 			children = (
-				5BBA567220D40082000462B6 /* MockRandomQuoteDataProvider.swift */,
-				5BFF7F0220D565D9009BA777 /* MockUserNotificationCenter.swift */,
-				5BF616FD20D16DCD00CC7BD7 /* NotificationServiceTests.swift */,
 				5BF616FF20D16DCD00CC7BD7 /* Info.plist */,
 			);
 			path = ThoughtForTheDayTests;
@@ -268,6 +272,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BC7668F20E29E0A0081C580 /* TriggersTableViewCell.xib in Resources */,
 				5BB4A35820CEB85B00AFC21E /* Main.storyboard in Resources */,
 				5B695D9320D1464B00D4DBDC /* Images.xcassets in Resources */,
 				5B07244020CA91BF000B3B16 /* QuoteTableViewCell.xib in Resources */,
@@ -308,7 +313,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B07241820B9BCD9000B3B16 /* QuoteTableController.swift in Sources */,
+				5BC7668A20E29B870081C580 /* TriggersTableController.swift in Sources */,
 				5B07240620B986E7000B3B16 /* QuoteViewController.swift in Sources */,
+				5BC7668D20E29DFF0081C580 /* TriggersTableViewCell.swift in Sources */,
 				5B07240420B986E7000B3B16 /* AppDelegate.swift in Sources */,
 				5B3C866420DEA813008764AB /* TriggersViewController.swift in Sources */,
 				5B07243E20CA91B2000B3B16 /* QuoteTableViewCell.swift in Sources */,
@@ -319,9 +326,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BFF7F0320D565D9009BA777 /* MockUserNotificationCenter.swift in Sources */,
-				5BBA567320D40082000462B6 /* MockRandomQuoteDataProvider.swift in Sources */,
-				5BF616FE20D16DCD00CC7BD7 /* NotificationServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

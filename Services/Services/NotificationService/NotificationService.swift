@@ -22,7 +22,7 @@ class NotificationService: NSObject, TDNotificationServiceProtocol {
     static var null: TDNotificationServiceProtocol = NotificationService()
 
     var dataProvider: RandomQuoteDataProviderProtocol = QuoteDataProvider.null
-    var notificationCenter: UserNotificationCenterProtocol = UNUserNotificationCenter.current()
+    var notificationCenter: UserNotificationCenterProtocol? //= UNUserNotificationCenter.current()
     var logger: FileLogger = FileLogger.logger
     
     override init() {
@@ -36,7 +36,7 @@ class NotificationService: NSObject, TDNotificationServiceProtocol {
     }
     
     public func scheduleImperialWisdom() {
-        self.notificationCenter.getPendingNotificationRequests { [unowned self] (pendingNotificationRequests: [UNNotificationRequest]) in
+        self.notificationCenter!.getPendingNotificationRequests { [unowned self] (pendingNotificationRequests: [UNNotificationRequest]) in
             self.process(pendingNotificationRequests: pendingNotificationRequests)
         }
     }
@@ -109,7 +109,7 @@ class NotificationService: NSObject, TDNotificationServiceProtocol {
     }
     
     fileprivate func schedule(request: UNNotificationRequest) {
-        self.notificationCenter.add(request) { (error : Error?) in
+        self.notificationCenter!.add(request) { (error : Error?) in
             if let theError = error {
                 print(theError.localizedDescription)
             }

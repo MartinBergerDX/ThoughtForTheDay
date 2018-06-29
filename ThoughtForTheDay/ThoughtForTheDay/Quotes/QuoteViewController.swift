@@ -17,5 +17,11 @@ class QuoteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableController = QuoteTableController.init(with: self.tableView, quoteDataProvider: self.quoteDataProvider)
+        self.title = "Thought for the day"
+    }
+    
+    @IBAction func onShowTriggers(sender: UIButton) {
+        let triggers: TriggersViewController = TriggersViewController.init()
+        self.navigationController?.pushViewController(triggers, animated: true)
     }
 }

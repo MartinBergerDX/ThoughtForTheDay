@@ -7,6 +7,7 @@
 //
 
 import UIKit
+@testable import Services
 
 class MockRandomQuoteDataProvider: NSObject, RandomQuoteDataProviderProtocol {
     var quotes: [String] = []

@@ -8,16 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		5B3C862120DD3293008764AB /* Services.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3C861720DD3293008764AB /* Services.framework */; };
-		5B3C862620DD3293008764AB /* ServicesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3C862520DD3293008764AB /* ServicesTests.swift */; };
+		5B3C862620DD3293008764AB /* NotificationSchedulingTimestampTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3C862520DD3293008764AB /* NotificationSchedulingTimestampTests.swift */; };
 		5B3C862820DD3293008764AB /* Services.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B3C861A20DD3293008764AB /* Services.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B3C864A20DD45C5008764AB /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3C864520DD45C5008764AB /* NotificationService.swift */; };
 		5B3C864B20DD45C5008764AB /* QuoteNotificationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3C864620DD45C5008764AB /* QuoteNotificationFactory.swift */; };
 		5B3C864D20DD45C5008764AB /* UpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3C864920DD45C5008764AB /* UpdateService.swift */; };
 		5B3C865820DD5542008764AB /* ServiceRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3C865720DD5542008764AB /* ServiceRegistry.swift */; };
 		5B3C865B20DD5A49008764AB /* QuoteDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3C865A20DD5A49008764AB /* QuoteDataProvider.swift */; };
-		5B3C865E20DD5A74008764AB /* StreamReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3C865D20DD5A74008764AB /* StreamReader.framework */; };
 		5B3C865F20DD5C47008764AB /* FileLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3C864E20DD45E0008764AB /* FileLogger.swift */; };
 		5B3C866120DD5ED0008764AB /* Quotes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5B3C866020DD5ED0008764AB /* Quotes.txt */; };
+		5BC7669220E425AC0081C580 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC7669120E425AC0081C580 /* CoreDataStack.swift */; };
+		5BC7669520E42B6D0081C580 /* DatabaseModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5BC7669320E42B6D0081C580 /* DatabaseModel.xcdatamodeld */; };
+		5BC7669A20E436520081C580 /* GenericDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC7669920E436520081C580 /* GenericDao.swift */; };
+		5BC766AA20E50A330081C580 /* SchedulingTimestamp+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC766A820E50A330081C580 /* SchedulingTimestamp+CoreDataClass.swift */; };
+		5BC766AB20E50A330081C580 /* SchedulingTimestamp+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC766A920E50A330081C580 /* SchedulingTimestamp+CoreDataProperties.swift */; };
+		5BC766AD20E50BDF0081C580 /* SchedulingTimestampDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC766AC20E50BDF0081C580 /* SchedulingTimestampDao.swift */; };
+		5BC766B120E519B30081C580 /* MockRandomQuoteDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC766AE20E519B20081C580 /* MockRandomQuoteDataProvider.swift */; };
+		5BC766B220E519B30081C580 /* MockUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC766AF20E519B30081C580 /* MockUserNotificationCenter.swift */; };
+		5BC766B320E519B30081C580 /* NotificationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC766B020E519B30081C580 /* NotificationServiceTests.swift */; };
+		5BC766C520E529C10081C580 /* Quotes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5B3C866020DD5ED0008764AB /* Quotes.txt */; };
+		5BC766C920E57FC20081C580 /* StreamReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BC766C820E57FC20081C580 /* StreamReader.framework */; };
+		5BC766CA20E582C50081C580 /* DatabaseModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5BC7669320E42B6D0081C580 /* DatabaseModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +46,7 @@
 		5B3C861A20DD3293008764AB /* Services.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Services.h; sourceTree = "<group>"; };
 		5B3C861B20DD3293008764AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B3C862020DD3293008764AB /* ServicesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ServicesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B3C862520DD3293008764AB /* ServicesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesTests.swift; sourceTree = "<group>"; };
+		5B3C862520DD3293008764AB /* NotificationSchedulingTimestampTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSchedulingTimestampTests.swift; sourceTree = "<group>"; };
 		5B3C862720DD3293008764AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B3C864520DD45C5008764AB /* NotificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		5B3C864620DD45C5008764AB /* QuoteNotificationFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteNotificationFactory.swift; sourceTree = "<group>"; };
@@ -43,8 +54,17 @@
 		5B3C864E20DD45E0008764AB /* FileLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileLogger.swift; sourceTree = "<group>"; };
 		5B3C865720DD5542008764AB /* ServiceRegistry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceRegistry.swift; sourceTree = "<group>"; };
 		5B3C865A20DD5A49008764AB /* QuoteDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteDataProvider.swift; sourceTree = "<group>"; };
-		5B3C865D20DD5A74008764AB /* StreamReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StreamReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B3C866020DD5ED0008764AB /* Quotes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Quotes.txt; sourceTree = "<group>"; };
+		5BC7669120E425AC0081C580 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		5BC7669420E42B6D0081C580 /* DatabaseModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DatabaseModel.xcdatamodel; sourceTree = "<group>"; };
+		5BC7669920E436520081C580 /* GenericDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericDao.swift; sourceTree = "<group>"; };
+		5BC766A820E50A330081C580 /* SchedulingTimestamp+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SchedulingTimestamp+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5BC766A920E50A330081C580 /* SchedulingTimestamp+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SchedulingTimestamp+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5BC766AC20E50BDF0081C580 /* SchedulingTimestampDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulingTimestampDao.swift; sourceTree = "<group>"; };
+		5BC766AE20E519B20081C580 /* MockRandomQuoteDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRandomQuoteDataProvider.swift; sourceTree = "<group>"; };
+		5BC766AF20E519B30081C580 /* MockUserNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserNotificationCenter.swift; sourceTree = "<group>"; };
+		5BC766B020E519B30081C580 /* NotificationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationServiceTests.swift; sourceTree = "<group>"; };
+		5BC766C820E57FC20081C580 /* StreamReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StreamReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B3C865E20DD5A74008764AB /* StreamReader.framework in Frameworks */,
+				5BC766C920E57FC20081C580 /* StreamReader.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,9 +109,12 @@
 		5B3C861920DD3293008764AB /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				5B3C864320DD45C5008764AB /* Services */,
+				5B3C865720DD5542008764AB /* ServiceRegistry.swift */,
+				5B3C864420DD45C5008764AB /* NotificationService */,
+				5B3C864820DD45C5008764AB /* UpdateService */,
 				5B3C864F20DD45E0008764AB /* FileLogger */,
-				5B3C865920DD5A49008764AB /* Quotes */,
+				5B3C865920DD5A49008764AB /* QuoteDataProvider */,
+				5BC7669020E425800081C580 /* Database */,
 				5B3C861A20DD3293008764AB /* Services.h */,
 				5B3C861B20DD3293008764AB /* Info.plist */,
 				5B3C866020DD5ED0008764AB /* Quotes.txt */,
@@ -102,20 +125,11 @@
 		5B3C862420DD3293008764AB /* ServicesTests */ = {
 			isa = PBXGroup;
 			children = (
-				5B3C862520DD3293008764AB /* ServicesTests.swift */,
+				5BC766C120E51A9D0081C580 /* NotificationService */,
+				5BC766C220E522450081C580 /* Database */,
 				5B3C862720DD3293008764AB /* Info.plist */,
 			);
 			path = ServicesTests;
-			sourceTree = "<group>";
-		};
-		5B3C864320DD45C5008764AB /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				5B3C865720DD5542008764AB /* ServiceRegistry.swift */,
-				5B3C864420DD45C5008764AB /* NotificationService */,
-				5B3C864820DD45C5008764AB /* UpdateService */,
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 		5B3C864420DD45C5008764AB /* NotificationService */ = {
@@ -143,20 +157,67 @@
 			path = FileLogger;
 			sourceTree = "<group>";
 		};
-		5B3C865920DD5A49008764AB /* Quotes */ = {
+		5B3C865920DD5A49008764AB /* QuoteDataProvider */ = {
 			isa = PBXGroup;
 			children = (
 				5B3C865A20DD5A49008764AB /* QuoteDataProvider.swift */,
 			);
-			path = Quotes;
+			path = QuoteDataProvider;
 			sourceTree = "<group>";
 		};
 		5B3C865C20DD5A74008764AB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5B3C865D20DD5A74008764AB /* StreamReader.framework */,
+				5BC766C820E57FC20081C580 /* StreamReader.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5BC7669020E425800081C580 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				5BC7669120E425AC0081C580 /* CoreDataStack.swift */,
+				5BC7669320E42B6D0081C580 /* DatabaseModel.xcdatamodeld */,
+				5BC7669B20E502DD0081C580 /* Model */,
+				5BC7669820E436520081C580 /* DAO */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		5BC7669820E436520081C580 /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				5BC7669920E436520081C580 /* GenericDao.swift */,
+				5BC766AC20E50BDF0081C580 /* SchedulingTimestampDao.swift */,
+			);
+			path = DAO;
+			sourceTree = "<group>";
+		};
+		5BC7669B20E502DD0081C580 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5BC766A820E50A330081C580 /* SchedulingTimestamp+CoreDataClass.swift */,
+				5BC766A920E50A330081C580 /* SchedulingTimestamp+CoreDataProperties.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5BC766C120E51A9D0081C580 /* NotificationService */ = {
+			isa = PBXGroup;
+			children = (
+				5BC766AE20E519B20081C580 /* MockRandomQuoteDataProvider.swift */,
+				5BC766AF20E519B30081C580 /* MockUserNotificationCenter.swift */,
+				5BC766B020E519B30081C580 /* NotificationServiceTests.swift */,
+			);
+			path = NotificationService;
+			sourceTree = "<group>";
+		};
+		5BC766C220E522450081C580 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				5B3C862520DD3293008764AB /* NotificationSchedulingTimestampTests.swift */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +319,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BC766C520E529C10081C580 /* Quotes.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,11 +330,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BC7669520E42B6D0081C580 /* DatabaseModel.xcdatamodeld in Sources */,
+				5BC766AB20E50A330081C580 /* SchedulingTimestamp+CoreDataProperties.swift in Sources */,
+				5BC7669220E425AC0081C580 /* CoreDataStack.swift in Sources */,
+				5BC766AA20E50A330081C580 /* SchedulingTimestamp+CoreDataClass.swift in Sources */,
 				5B3C864B20DD45C5008764AB /* QuoteNotificationFactory.swift in Sources */,
+				5BC7669A20E436520081C580 /* GenericDao.swift in Sources */,
 				5B3C864D20DD45C5008764AB /* UpdateService.swift in Sources */,
 				5B3C865820DD5542008764AB /* ServiceRegistry.swift in Sources */,
 				5B3C865F20DD5C47008764AB /* FileLogger.swift in Sources */,
 				5B3C865B20DD5A49008764AB /* QuoteDataProvider.swift in Sources */,
+				5BC766AD20E50BDF0081C580 /* SchedulingTimestampDao.swift in Sources */,
 				5B3C864A20DD45C5008764AB /* NotificationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,7 +349,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B3C862620DD3293008764AB /* ServicesTests.swift in Sources */,
+				5BC766B320E519B30081C580 /* NotificationServiceTests.swift in Sources */,
+				5BC766CA20E582C50081C580 /* DatabaseModel.xcdatamodeld in Sources */,
+				5BC766B120E519B30081C580 /* MockRandomQuoteDataProvider.swift in Sources */,
+				5BC766B220E519B30081C580 /* MockUserNotificationCenter.swift in Sources */,
+				5B3C862620DD3293008764AB /* NotificationSchedulingTimestampTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,9 +491,10 @@
 		5B3C862C20DD3293008764AB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = BE4CWML7BN;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -446,6 +519,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = BE4CWML7BN;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -469,6 +543,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BE4CWML7BN;
 				INFOPLIST_FILE = ServicesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -487,6 +562,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BE4CWML7BN;
 				INFOPLIST_FILE = ServicesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -531,6 +607,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5BC7669320E42B6D0081C580 /* DatabaseModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5BC7669420E42B6D0081C580 /* DatabaseModel.xcdatamodel */,
+			);
+			currentVersion = 5BC7669420E42B6D0081C580 /* DatabaseModel.xcdatamodel */;
+			path = DatabaseModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5B3C860E20DD3293008764AB /* Project object */;
 }

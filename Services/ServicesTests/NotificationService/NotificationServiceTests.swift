@@ -8,6 +8,7 @@
 
 import XCTest
 import UserNotifications
+@testable import Services
 
 class NotificationServiceTests: XCTestCase {
     var notificationService: TDNotificationServiceProtocol = NotificationService.null

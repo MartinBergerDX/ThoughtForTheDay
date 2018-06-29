@@ -16,15 +16,18 @@ public struct Constants {
 public protocol ServiceRegistryProtocol {
     var notification: TDNotificationServiceProtocol { get }
     var update: UpdateServiceProtocol { get }
+    var database: DatabaseProtocol { get }
 }
 
 public class ServiceRegistry: NSObject, ServiceRegistryProtocol {
     public static let shared: ServiceRegistryProtocol = ServiceRegistry()
     public var notification: TDNotificationServiceProtocol = NotificationService.null
     public var update: UpdateServiceProtocol = UpdateService.null
+    public var database: DatabaseProtocol = CoreDataStack.null
     
     override init() {
         self.notification = NotificationService(quoteDataProvider: QuoteDataProvider.init(textFileName: Constants.fileName), notificationCenter: UNUserNotificationCenter.current())
         self.update = UpdateService.init()
+        self.database = CoreDataStack.init(modelName: CoreDataStack.defaultModelName)
     }
 }

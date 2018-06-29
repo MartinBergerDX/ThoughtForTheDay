@@ -39,5 +39,4 @@ class QuoteTableController: NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dataProvider.count()
     }
-    
 }

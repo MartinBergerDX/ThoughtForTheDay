@@ -11,5 +11,15 @@ import UIKit
 import PureLayout
 
 class TriggersViewController: UIViewController {
-    var tableView: UITableView!
+    var tableView: UITableView = UITableView.init()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        installTableView()
+    }
+    
+    fileprivate func installTableView() {
+        self.view.addSubview(self.tableView)
+        self.tableView.autoPinEdgesToSuperviewEdges()
+    }
 }

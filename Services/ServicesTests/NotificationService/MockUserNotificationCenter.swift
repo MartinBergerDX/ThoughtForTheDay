@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+@testable import Services
 
 class MockUserNotificationCenter: NSObject, UserNotificationCenterProtocol {
     fileprivate var requests: [UNNotificationRequest] = []
