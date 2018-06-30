@@ -12,10 +12,12 @@ import PureLayout
 
 class TriggersViewController: UIViewController {
     var tableView: UITableView = UITableView.init()
+    var tableController: TriggersTableController = TriggersTableController.null
     
     override func viewDidLoad() {
         super.viewDidLoad()
         installTableView()
+        self.tableController = TriggersTableController.init(tableView: self.tableView)
     }
     
     fileprivate func installTableView() {

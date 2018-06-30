@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class GenericDao<T:NSManagedObject> {
+public class GenericDao<T:NSManagedObject> {
 
     var moc: NSManagedObjectContext
     var entityName: String = ""
@@ -21,7 +21,7 @@ class GenericDao<T:NSManagedObject> {
         return ed!
     }()
 
-    init() {
+    public init() {
         if let _ : String = ProcessInfo.processInfo.environment["TESTING"] {
             self.moc = CoreDataStack.init(modelName: CoreDataStack.defaultModelName).managedObjectContext
         } else {
@@ -30,7 +30,7 @@ class GenericDao<T:NSManagedObject> {
         self.entityName = NSStringFromClass(T.self).components(separatedBy: ".").last!
     }
 
-    func fetchRequest() -> NSFetchRequest<NSFetchRequestResult> {
+    public func fetchRequest() -> NSFetchRequest<NSFetchRequestResult> {
         let fr = NSFetchRequest<NSFetchRequestResult>(entityName: self.entityName)
         fr.entity = self.entityDescription
         if let dob = self.defaultOrderBy {
@@ -39,11 +39,11 @@ class GenericDao<T:NSManagedObject> {
         return fr
     }
 
-    func fetchWithPredicate(_ predicate: NSPredicate?, sortDescriptors: Array<NSSortDescriptor>?) -> Array<T> {
+    public func fetchWithPredicate(_ predicate: NSPredicate?, sortDescriptors: Array<NSSortDescriptor>?) -> Array<T> {
         return self.fetchWithPredicate(predicate, sortDescriptors: sortDescriptors, properties: nil)
     }
 
-    func fetchWithPredicate(_ predicate: NSPredicate?, sortDescriptors: Array<NSSortDescriptor>?, properties: Array<String>?) -> Array<T> {
+    public func fetchWithPredicate(_ predicate: NSPredicate?, sortDescriptors: Array<NSSortDescriptor>?, properties: Array<String>?) -> Array<T> {
         let fetchRequest = self.fetchRequest();
         fetchRequest.predicate = predicate
 
@@ -67,7 +67,7 @@ class GenericDao<T:NSManagedObject> {
         return []
     }
 
-    func isTableEmpty() -> Bool {
+    public func isTableEmpty() -> Bool {
         let count = try? self.moc.count(for: self.fetchRequest())
         if count == NSNotFound {
             print("isTableEmpty error")
@@ -76,15 +76,15 @@ class GenericDao<T:NSManagedObject> {
         return count == 0
     }
 
-    func totalRowsCount() -> Int {
+    public func totalRowsCount() -> Int {
         return try! self.moc.count(for: self.fetchRequest())
     }
 
-    func insertNew() -> T {
+    public func insertNew() -> T {
         return NSEntityDescription.insertNewObject(forEntityName: self.entityName, into: self.moc) as! T
     }
 
-    func findByID(_ entityID: AnyObject) -> T? {
+    public func findByID(_ entityID: AnyObject) -> T? {
         var predicate: NSPredicate?
 
         if let strID = entityID as? String {
@@ -100,7 +100,7 @@ class GenericDao<T:NSManagedObject> {
         return result.first as T?
     }
 
-    func getExistingOrNew(_ entityID: AnyObject) -> T {
+    public func getExistingOrNew(_ entityID: AnyObject) -> T {
         var entity: T? = self.findByID(entityID)
         if entity == nil {
             entity = self.insertNew()
@@ -111,7 +111,7 @@ class GenericDao<T:NSManagedObject> {
         return entity!
     }
 
-    func findAll() -> Array<T> {
+    public func findAll() -> Array<T> {
         if let dob = self.defaultOrderBy {
             return self.fetchWithPredicate(nil, sortDescriptors: [dob])
         } else {
@@ -119,7 +119,7 @@ class GenericDao<T:NSManagedObject> {
         }
     }
 
-    func findAllByIDs(_ entityIDs: Array<AnyObject>, sortDescriptors: Array<NSSortDescriptor>?) -> Array<T> {
+    public func findAllByIDs(_ entityIDs: Array<AnyObject>, sortDescriptors: Array<NSSortDescriptor>?) -> Array<T> {
         if entityIDs.count == 0 {
             return []
         }
@@ -129,7 +129,7 @@ class GenericDao<T:NSManagedObject> {
         return results
     }
 
-    func save() -> Bool {
+    public func save() -> Bool {
         do {
             try self.moc.save()
         } catch let error as NSError {
@@ -139,7 +139,7 @@ class GenericDao<T:NSManagedObject> {
         return true
     }
 
-    func saveToPersistentStore() -> Bool {
+    public func saveToPersistentStore() -> Bool {
         do {
             try self.moc.save()
         } catch let error as NSError {
@@ -149,7 +149,7 @@ class GenericDao<T:NSManagedObject> {
         return true
     }
 
-    func delete(_ entity: T, save: Bool) -> Bool {
+    public func delete(_ entity: T, save: Bool) -> Bool {
         self.moc.delete(entity)
         if (save) {
             return self.saveToPersistentStore()
@@ -158,7 +158,7 @@ class GenericDao<T:NSManagedObject> {
         }
     }
 
-    func deleteEntities(_ entities: Array<T>, save: Bool) -> Bool {
+    public func deleteEntities(_ entities: Array<T>, save: Bool) -> Bool {
         for entity in entities {
             self.moc.delete(entity)
         }
@@ -169,15 +169,15 @@ class GenericDao<T:NSManagedObject> {
         return true
     }
 
-    func domainToCoreData(_ domain: AnyObject, dbObject: T) {
+    public func domainToCoreData(_ domain: AnyObject, dbObject: T) {
         // abstract
     }
 
-    func coreDataToDomain(_ dbObject: T, domain: AnyObject) {
+    public func coreDataToDomain(_ dbObject: T, domain: AnyObject) {
         // abstract
     }
     
-    func deleteAll() {
+    public func deleteAll() {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>.init(entityName: self.entityName)
         let deleteRequest: NSBatchDeleteRequest = NSBatchDeleteRequest.init(fetchRequest: fetchRequest)
         do {

@@ -8,8 +8,8 @@
 
 import Foundation
 
-class SchedulingTimestampDao : GenericDao<SchedulingTimestamp> {
-    override init() {
+public class SchedulingTimestampDao : GenericDao<SchedulingTimestamp> {
+    override public init() {
         super.init()
         defaultOrderBy = NSSortDescriptor(key: "hour", ascending: true)
     }
