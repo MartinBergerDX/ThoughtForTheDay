@@ -15,11 +15,24 @@ public class SchedulingTimestampDao : GenericDao<SchedulingTimestamp> {
     }
     
     func findAllSortedAscending() -> Array<SchedulingTimestamp> {
+        return self.fetchWithPredicate(nil, sortDescriptors: sortDescriptors())
+    }
+    
+    func find(hour: String, minute: String) -> SchedulingTimestamp? {
+        let predicate: NSPredicate = NSPredicate.init(format: "(hour LIKE[cd] %@) AND (minute LIKE[cd] %@)", hour, minute)
+        return fetchWithPredicate(predicate, sortDescriptors: sortDescriptors()).first
+    }
+    
+    public func scheduledTimestampExists(with hour: String, minute: String) -> Bool {
+        return find(hour: hour, minute: minute) != nil
+    }
+    
+    fileprivate func sortDescriptors() -> [NSSortDescriptor] {
         var sd: [NSSortDescriptor] = []
         if let dob: NSSortDescriptor = self.defaultOrderBy {
             sd.append(dob)
         }
         sd.append(NSSortDescriptor(key: "minute", ascending: true))
-        return self.fetchWithPredicate(nil, sortDescriptors: sd)
+        return sd
     }
 }

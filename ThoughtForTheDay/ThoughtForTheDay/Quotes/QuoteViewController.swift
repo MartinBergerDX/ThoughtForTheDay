@@ -11,6 +11,7 @@ import Services
 
 class QuoteViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var addButton: UIButton!
     let quoteDataProvider: IndexedQuoteDataProviderProtocol = QuoteDataProvider(textFileName: Constants.fileName)
     var tableController: QuoteTableController?
     
@@ -18,6 +19,8 @@ class QuoteViewController: UIViewController {
         super.viewDidLoad()
         self.tableController = QuoteTableController.init(with: self.tableView, quoteDataProvider: self.quoteDataProvider)
         self.title = "Thought for the day"
+        self.addButton.widthAnchor.constraint(equalToConstant: 32).isActive = true
+        self.addButton.heightAnchor.constraint(equalToConstant: 32).isActive = true
     }
     
     @IBAction func onShowTriggers(sender: UIButton) {

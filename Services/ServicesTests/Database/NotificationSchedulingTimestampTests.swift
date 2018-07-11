@@ -76,4 +76,13 @@ class NotificationSchedulingTimestampTests: XCTestCase {
         XCTAssertTrue(times[2].hour == "10" && times[2].minute == "12")
         XCTAssertTrue(times[3].hour == "12" && times[3].minute == "45")
     }
+    
+    func testFindByTime() {
+        self.dao.deleteAll()
+        let nt1: SchedulingTimestamp = self.dao.insertNew()
+        nt1.hour = "10"
+        nt1.minute = "12"
+        let _ = self.dao.save()
+        XCTAssert(self.dao.find(hour: "10", minute: "12") != nil)
+    }
 }

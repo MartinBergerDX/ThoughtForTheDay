@@ -14,7 +14,6 @@ class TriggersTableController: NSObject, UITableViewDataSource {
     static let null: TriggersTableController = TriggersTableController.init()
     var tableView: UITableView = UITableView.init()
     var timestamps: [SchedulingTimestamp] = []
-    var dateFormatter: DateFormatter = DateFormatter.init()
     
     override init() {
         super.init()
@@ -24,10 +23,16 @@ class TriggersTableController: NSObject, UITableViewDataSource {
         super.init()
         self.tableView = tableView;
         tableView.dataSource = self
-        tableView.register(UINib.init(nibName: String(describing: TriggersTableViewCell.self), bundle: Bundle.main), forCellReuseIdentifier: String(describing: TriggersTableViewCell.self))
+        registerCells()
+    }
+    
+    fileprivate func registerCells() {
+        self.tableView.register(UINib.init(nibName: String(describing: TriggersTableViewCell.self), bundle: Bundle.main), forCellReuseIdentifier: String(describing: TriggersTableViewCell.self))
+    }
+    
+    func refreshTriggers() {
         self.timestamps = SchedulingTimestampDao().findAll()
-        self.dateFormatter.timeStyle = .short
-        self.dateFormatter.dateStyle = .none
+        self.tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -38,7 +43,7 @@ class TriggersTableController: NSObject, UITableViewDataSource {
         dateCmp.hour = Int(schedulingTimestamp.hour ?? "")
         dateCmp.minute = Int(schedulingTimestamp.minute ?? "")
         let date: Date = Calendar.autoupdatingCurrent.date(from: dateCmp)!
-        let time: String = self.dateFormatter.string(from: date)
+        let time: String = DateUtils.shared.dateFormatter.string(from: date)
         cell.show(time: time)
         return cell
     }

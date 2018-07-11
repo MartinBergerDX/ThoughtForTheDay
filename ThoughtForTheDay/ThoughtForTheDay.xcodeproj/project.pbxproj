@@ -14,6 +14,9 @@
 		5B07244020CA91BF000B3B16 /* QuoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B07243F20CA91BF000B3B16 /* QuoteTableViewCell.xib */; };
 		5B3C866420DEA813008764AB /* TriggersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3C866320DEA813008764AB /* TriggersViewController.swift */; };
 		5B3C866620DEB9CE008764AB /* PureLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3C866520DEB9CE008764AB /* PureLayout.framework */; };
+		5B487D8B20F636D600D09D58 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B487D8A20F636D600D09D58 /* DateUtils.swift */; };
+		5B57632020EE2E9E00970D4C /* SelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B57631F20EE2E9E00970D4C /* SelectorViewController.swift */; };
+		5B57632420EE3E7900970D4C /* UIViewControllerSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B57632320EE3E7900970D4C /* UIViewControllerSetup.swift */; };
 		5B695D9320D1464B00D4DBDC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B695D9220D1464B00D4DBDC /* Images.xcassets */; };
 		5BB4A35720CEB85B00AFC21E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BB4A35320CEB85B00AFC21E /* LaunchScreen.storyboard */; };
 		5BB4A35820CEB85B00AFC21E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BB4A35520CEB85B00AFC21E /* Main.storyboard */; };
@@ -55,6 +58,9 @@
 		5B07243F20CA91BF000B3B16 /* QuoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = QuoteTableViewCell.xib; path = ThoughtForTheDay/Quotes/Cell/QuoteTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		5B3C866320DEA813008764AB /* TriggersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriggersViewController.swift; sourceTree = "<group>"; };
 		5B3C866520DEB9CE008764AB /* PureLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PureLayout.framework; path = Carthage/Build/iOS/PureLayout.framework; sourceTree = "<group>"; };
+		5B487D8A20F636D600D09D58 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		5B57631F20EE2E9E00970D4C /* SelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorViewController.swift; sourceTree = "<group>"; };
+		5B57632320EE3E7900970D4C /* UIViewControllerSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerSetup.swift; sourceTree = "<group>"; };
 		5B695D9220D1464B00D4DBDC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5BB4A35420CEB85B00AFC21E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ThoughtForTheDay/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BB4A35620CEB85B00AFC21E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ThoughtForTheDay/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -113,6 +119,8 @@
 				5B07240320B986E7000B3B16 /* AppDelegate.swift */,
 				5B07244120CAA2C0000B3B16 /* Quotes */,
 				5B3C866220DEA575008764AB /* TriggersViewController */,
+				5B57631E20EE2E7900970D4C /* SelectorViewController */,
+				5B57632120EE3D1F00970D4C /* Util */,
 			);
 			path = ThoughtForTheDay;
 			sourceTree = "<group>";
@@ -153,6 +161,23 @@
 				5BC7668B20E29DDE0081C580 /* Cell */,
 			);
 			path = TriggersViewController;
+			sourceTree = "<group>";
+		};
+		5B57631E20EE2E7900970D4C /* SelectorViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5B57631F20EE2E9E00970D4C /* SelectorViewController.swift */,
+			);
+			path = SelectorViewController;
+			sourceTree = "<group>";
+		};
+		5B57632120EE3D1F00970D4C /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				5B57632320EE3E7900970D4C /* UIViewControllerSetup.swift */,
+				5B487D8A20F636D600D09D58 /* DateUtils.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		5BB4A35D20CEB86B00AFC21E /* Resources */ = {
@@ -316,9 +341,12 @@
 				5BC7668A20E29B870081C580 /* TriggersTableController.swift in Sources */,
 				5B07240620B986E7000B3B16 /* QuoteViewController.swift in Sources */,
 				5BC7668D20E29DFF0081C580 /* TriggersTableViewCell.swift in Sources */,
+				5B57632420EE3E7900970D4C /* UIViewControllerSetup.swift in Sources */,
 				5B07240420B986E7000B3B16 /* AppDelegate.swift in Sources */,
 				5B3C866420DEA813008764AB /* TriggersViewController.swift in Sources */,
+				5B487D8B20F636D600D09D58 /* DateUtils.swift in Sources */,
 				5B07243E20CA91B2000B3B16 /* QuoteTableViewCell.swift in Sources */,
+				5B57632020EE2E9E00970D4C /* SelectorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

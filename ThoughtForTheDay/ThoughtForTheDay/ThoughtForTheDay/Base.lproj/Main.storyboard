@@ -35,10 +35,13 @@
                     <navigationItem key="navigationItem" id="LXj-Oo-MKh">
                         <barButtonItem key="backBarButtonItem" title=" " id="i6f-qB-73I"/>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="99N-xc-6gm">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="X3X-eZ-ymV">
-                                <rect key="frame" x="302" y="6" width="57" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Triggers"/>
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="X3X-eZ-ymV">
+                                <rect key="frame" x="309" y="0.0" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="icon_clock_deselected"/>
+                                <state key="selected" image="icon_clock_selected"/>
+                                <state key="highlighted" image="icon_clock_selected"/>
                                 <connections>
                                     <action selector="onShowTriggersWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="erO-rm-plb"/>
                                 </connections>
@@ -46,6 +49,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addButton" destination="X3X-eZ-ymV" id="OpL-gM-2B5"/>
                         <outlet property="tableView" destination="krC-Cd-8Xm" id="9kw-ug-ZHk"/>
                     </connections>
                 </viewController>
@@ -70,4 +74,8 @@
             <point key="canvasLocation" x="-858" y="117"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon_clock_deselected" width="50" height="50"/>
+        <image name="icon_clock_selected" width="50" height="50"/>
+    </resources>
 </document>
