@@ -16,14 +16,17 @@ public protocol TDNotificationServiceProtocol {
 }
 
 class NotificationService: NSObject, TDNotificationServiceProtocol {
-    fileprivate static let hour = 14
-    fileprivate static let minute = 00
     static let maxNotifications: Int = 64
     static var null: TDNotificationServiceProtocol = NotificationService()
 
     var dataProvider: RandomQuoteDataProviderProtocol = QuoteDataProvider.null
-    var notificationCenter: UserNotificationCenterProtocol? //= UNUserNotificationCenter.current()
+    var notificationCenter: UserNotificationCenterProtocol?
     var logger: FileLogger = FileLogger.logger
+    
+    fileprivate var scheduledNotificationRequests: [UNNotificationRequest] = []
+    fileprivate var dates: [Date] = []
+    fileprivate var startDate: Date = Date.init()
+    fileprivate let quoteNotificationFactory = QuoteNotificationFactory.init()
     
     override init() {
         
@@ -37,25 +40,28 @@ class NotificationService: NSObject, TDNotificationServiceProtocol {
     
     public func scheduleImperialWisdom() {
         self.notificationCenter!.getPendingNotificationRequests { [unowned self] (pendingNotificationRequests: [UNNotificationRequest]) in
-            self.process(pendingNotificationRequests: pendingNotificationRequests)
+            self.scheduledNotificationRequests = pendingNotificationRequests.filter({ $0.content.categoryIdentifier == QuoteNotificationFactory.categoryIdentifier })
+            self.scheduleIfNeeded()
         }
     }
     
-    fileprivate func process(pendingNotificationRequests: [UNNotificationRequest]) {
-        let pending = pendingNotificationRequests.filter({ $0.content.categoryIdentifier == QuoteNotificationFactory.categoryIdentifier })
-        printScheduled(requests: pending)
-        var remaining: Int = NotificationService.maxNotifications - pending.count
-        if remaining == 0 {
+    fileprivate func scheduleIfNeeded() {
+        if (maxNotificationsScheduled()) {
             print("Max notifications scheduled.")
             return
         }
-        var startDate: Date = Date.init()
-        if (remaining != NotificationService.maxNotifications) {
-            if let request: UNNotificationRequest = pending.last {
-                startDate = nextDate(request: request)
-            }
+        self.startDate = Date.init()
+        if let request: UNNotificationRequest = self.scheduledNotificationRequests.last {
+            self.startDate = nextDate(request: request)
         }
-        self.scheduleNotifications(startDate: startDate, remaining: &remaining)
+        self.scheduleNotifications()
+    }
+    
+    fileprivate func maxNotificationsScheduled() -> Bool {
+        let pending = self.scheduledNotificationRequests
+        printScheduled(requests: pending)
+        let remaining: Int = NotificationService.maxNotifications - pending.count
+        return remaining == 0
     }
     
     fileprivate func nextDate(request: UNNotificationRequest) -> Date {
@@ -67,41 +73,58 @@ class NotificationService: NSObject, TDNotificationServiceProtocol {
             return today
         }
         var components = DateComponents.init()
-        components.hour = NotificationService.hour
-        components.minute = NotificationService.minute
+        components.hour = 0
         if let nextDate = Calendar.autoupdatingCurrent.nextDate(after: date, matching: components, matchingPolicy: Calendar.MatchingPolicy.nextTime) {
             return nextDate
         }
         return today
     }
     
-    fileprivate func scheduleNotifications(startDate: Date, remaining: inout Int) {
-        var dates: [Date] = []
+    fileprivate func scheduleNotifications() {
+        loadSomeDates()
+        let scheduledTimestamps = SchedulingTimestampDao.init().findAllSortedAscending()
+        var remainingToSchedule = countNotificationsToSchedule()
+        while remainingToSchedule > 0 {
+            let date: Date = self.dates.removeFirst()
+            for timestamp: SchedulingTimestamp in scheduledTimestamps {
+                let quote: String = self.dataProvider.popRandomQuote()
+                let trigger: UNCalendarNotificationTrigger = notificationTrigger(for: date, timestamp: timestamp)
+                let request = self.quoteNotificationFactory.imperialQuote(imperialQuote: quote, trigger: trigger)
+                self.schedule(request: request)
+                remainingToSchedule -= 1
+                if (remainingToSchedule == 0) {
+                    break
+                }
+            }
+        }
+    }
+    
+    fileprivate func notificationTrigger(for date: Date, timestamp: SchedulingTimestamp) -> UNCalendarNotificationTrigger {
+        let c = self.requiredComponents()
+        var components = Calendar.autoupdatingCurrent.dateComponents(c, from: date)
+        components.hour = Int(timestamp.hour ?? "0")
+        components.minute = Int(timestamp.minute ?? "0")
+        let trigger: UNCalendarNotificationTrigger = UNCalendarNotificationTrigger.init(dateMatching: components, repeats: false)
+        return trigger
+    }
+    
+    fileprivate func loadSomeDates() {
+        self.dates = []
         var components: DateComponents = DateComponents.init()
-        components.hour = NotificationService.hour
-        components.minute = NotificationService.minute
+        components.hour = 0
+        var remaining = NotificationService.maxNotifications
         Calendar.autoupdatingCurrent.enumerateDates(startingAfter: startDate, matching: components, matchingPolicy: Calendar.MatchingPolicy.nextTime, using: { (date: Date?, unknown: Bool, stop: inout Bool) in
             guard let theDate = date else {
                 return
             }
             dates.append(theDate)
             remaining -= 1
-            if (remaining == 0) {
-                stop = true
-            }
+            stop = (remaining == 0)
         })
-        
-        let factory = QuoteNotificationFactory.init()
-        for date: Date in dates {
-            let quote: String = self.dataProvider.popRandomQuote()
-            let c = self.requiredComponents()
-            var components = Calendar.autoupdatingCurrent.dateComponents(c, from: date)
-            components.hour = NotificationService.hour
-            components.minute = NotificationService.minute
-            let trigger: UNCalendarNotificationTrigger = UNCalendarNotificationTrigger.init(dateMatching: components, repeats: false)
-            let request = factory.imperialQuote(imperialQuote: quote, trigger: trigger)
-            self.schedule(request: request)
-        }
+    }
+    
+    fileprivate func countNotificationsToSchedule() -> Int {
+        return NotificationService.maxNotifications - self.scheduledNotificationRequests.count
     }
     
     fileprivate func requiredComponents() -> Set<Calendar.Component> {

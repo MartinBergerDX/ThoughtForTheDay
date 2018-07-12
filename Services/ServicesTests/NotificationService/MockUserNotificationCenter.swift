@@ -56,13 +56,17 @@ class MockUserNotificationCenter: NSObject, UserNotificationCenterProtocol {
             if d1 > d2 {
                 return false
             }
-            let c1: DateComponents = Calendar.autoupdatingCurrent.dateComponents(Set<Calendar.Component>.init(arrayLiteral: Calendar.Component.day, Calendar.Component.month), from: d1)
-            let c2: DateComponents = Calendar.autoupdatingCurrent.dateComponents(Set<Calendar.Component>.init(arrayLiteral: Calendar.Component.day, Calendar.Component.month), from: d2)
+            let c1: DateComponents = Calendar.autoupdatingCurrent.dateComponents(dateComponents(), from: d1)
+            let c2: DateComponents = Calendar.autoupdatingCurrent.dateComponents(dateComponents(), from: d2)
             print(dateFormatter.string(from: d1) + " " + dateFormatter.string(from: d2))
-            if c1.day == c2.day && c1.month == c2.month {
+            if c1.day == c2.day && c1.month == c2.month && c1.hour == c2.hour && c1.minute == c2.minute {
                 return false
             }
         }
         return true
+    }
+    
+    fileprivate func dateComponents() -> Set<Calendar.Component> {
+        return Set<Calendar.Component>.init(arrayLiteral: Calendar.Component.day, Calendar.Component.month, Calendar.Component.hour, Calendar.Component.minute)
     }
 }
