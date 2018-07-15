@@ -90,16 +90,16 @@ class NotificationService: NSObject, TDNotificationServiceProtocol {
     
     fileprivate func scheduleNotifications() {
         loadSomeDates()
-        let scheduled = SchedulingTimestampDao.init().findAllSortedAscending()
+        let scheduled = QuoteEventDao.init().findAllSortedAscending()
         if (scheduled.count == 0) {
             return
         }
         var remaining = countNotificationsToSchedule()
         while remaining > 0 {
             let date: Date = self.dates.removeFirst()
-            for timestamp: SchedulingTimestamp in scheduled {
+            for quoteEvent: QuoteEvent in scheduled {
                 let quote: String = self.dataProvider.pop()
-                let trigger: UNCalendarNotificationTrigger = notificationTrigger(for: date, timestamp: timestamp)
+                let trigger: UNCalendarNotificationTrigger = notificationTrigger(for: date, quoteEvent: quoteEvent)
                 let request = self.quoteNotificationFactory.imperialQuote(imperialQuote: quote, trigger: trigger)
                 self.schedule(request: request)
                 remaining -= 1
@@ -114,11 +114,11 @@ class NotificationService: NSObject, TDNotificationServiceProtocol {
         }
     }
     
-    fileprivate func notificationTrigger(for date: Date, timestamp: SchedulingTimestamp) -> UNCalendarNotificationTrigger {
+    fileprivate func notificationTrigger(for date: Date, quoteEvent: QuoteEvent) -> UNCalendarNotificationTrigger {
         let c = self.requiredComponents()
         var components = Calendar.autoupdatingCurrent.dateComponents(c, from: date)
-        components.hour = Int(timestamp.hour ?? "0")
-        components.minute = Int(timestamp.minute ?? "0")
+        components.hour = Int(quoteEvent.hour ?? "0")
+        components.minute = Int(quoteEvent.minute ?? "0")
         let trigger: UNCalendarNotificationTrigger = UNCalendarNotificationTrigger.init(dateMatching: components, repeats: false)
         return trigger
     }

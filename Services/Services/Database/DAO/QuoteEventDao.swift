@@ -1,5 +1,5 @@
 //
-//  SchedulingTimestampDao.swift
+//  QuoteEventDao.swift
 //  Services
 //
 //  Created by Martin on 6/28/18.
@@ -8,22 +8,22 @@
 
 import Foundation
 
-public class SchedulingTimestampDao : GenericDao<SchedulingTimestamp> {
+public class QuoteEventDao : GenericDao<QuoteEvent> {
     override public init() {
         super.init()
         defaultOrderBy = NSSortDescriptor(key: "hour", ascending: true)
     }
     
-    func findAllSortedAscending() -> Array<SchedulingTimestamp> {
+    func findAllSortedAscending() -> Array<QuoteEvent> {
         return self.fetchWithPredicate(nil, sortDescriptors: sortDescriptors())
     }
     
-    func find(hour: String, minute: String) -> SchedulingTimestamp? {
+    func find(hour: String, minute: String) -> QuoteEvent? {
         let predicate: NSPredicate = NSPredicate.init(format: "(hour LIKE[cd] %@) AND (minute LIKE[cd] %@)", hour, minute)
         return fetchWithPredicate(predicate, sortDescriptors: sortDescriptors()).first
     }
     
-    public func scheduledTimestampExists(with hour: String, minute: String) -> Bool {
+    public func exists(with hour: String, minute: String) -> Bool {
         return find(hour: hour, minute: minute) != nil
     }
     

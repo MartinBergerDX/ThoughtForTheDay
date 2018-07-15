@@ -50,12 +50,12 @@ class SelectorViewController: UIViewController {
     @IBAction fileprivate func onSave(sender: UIButton) {
         let hour: String = readHourFromPicker()
         let minute: String = readMinuteFromPicker()
-        let dao: SchedulingTimestampDao = SchedulingTimestampDao.init()
-        if (dao.scheduledTimestampExists(with: hour, minute: minute)) {
+        let dao: QuoteEventDao = QuoteEventDao.init()
+        if (dao.exists(with: hour, minute: minute)) {
             alertTimeAlreadySelected()
             return
         }
-        let entity: SchedulingTimestamp = dao.insertNew()
+        let entity: QuoteEvent = dao.insertNew()
         entity.hour = hour
         entity.minute = minute
         let _ = dao.saveToPersistentStore()

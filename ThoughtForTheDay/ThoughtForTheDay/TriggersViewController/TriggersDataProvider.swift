@@ -10,38 +10,38 @@ import Foundation
 import Services
 
 class TriggersDataProvider {
-    fileprivate var timestamps: [SchedulingTimestamp] = []
-    fileprivate var timestampsToCancel: [SchedulingTimestamp] = []
+    fileprivate var validEvents: [QuoteEvent] = []
+    fileprivate var cancelledEvents: [QuoteEvent] = []
     
     func load() {
-        self.timestamps = SchedulingTimestampDao().findAll()
+        self.validEvents = QuoteEventDao().findAll()
     }
     
     func cancelled() -> Bool {
-        return self.timestampsToCancel.count > 0
+        return self.cancelledEvents.count > 0
     }
     
     func cancel() {
-        let dao: SchedulingTimestampDao = SchedulingTimestampDao()
-        let _ = dao.deleteEntities(self.timestampsToCancel, save: true)
-        self.timestampsToCancel.removeAll()
+        let dao: QuoteEventDao = QuoteEventDao()
+        let _ = dao.deleteEntities(self.cancelledEvents, save: true)
+        self.cancelledEvents.removeAll()
     }
     
-    func appendCancelled(_ timestamp: SchedulingTimestamp) {
-        self.timestampsToCancel.append(timestamp)
+    func appendCancelled(_ quoteEvent: QuoteEvent) {
+        self.cancelledEvents.append(quoteEvent)
     }
     
     func setToCancel(_ index: Int) {
-        let timestamp: SchedulingTimestamp = self.timestamps.remove(at: index)
-        self.appendCancelled(timestamp)
+        let quoteEvent: QuoteEvent = self.validEvents.remove(at: index)
+        self.appendCancelled(quoteEvent)
     }
     
     func count() -> Int {
-        return self.timestamps.count
+        return self.validEvents.count
     }
     
-    func object(at index: Int) -> SchedulingTimestamp {
-        return self.timestamps[index]
+    func object(at index: Int) -> QuoteEvent {
+        return self.validEvents[index]
     }
     
     func updateChanges() {

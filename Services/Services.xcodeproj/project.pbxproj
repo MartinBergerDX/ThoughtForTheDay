@@ -17,12 +17,13 @@
 		5B3C865B20DD5A49008764AB /* QuoteDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3C865A20DD5A49008764AB /* QuoteDataProvider.swift */; };
 		5B3C865F20DD5C47008764AB /* FileLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3C864E20DD45E0008764AB /* FileLogger.swift */; };
 		5B3C866120DD5ED0008764AB /* Quotes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5B3C866020DD5ED0008764AB /* Quotes.txt */; };
+		5B8F860220FBB76000A9E7BF /* QuoteEvent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8F860020FBB75F00A9E7BF /* QuoteEvent+CoreDataClass.swift */; };
+		5B8F860320FBB76000A9E7BF /* QuoteEvent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8F860120FBB75F00A9E7BF /* QuoteEvent+CoreDataProperties.swift */; };
+		5B8F860720FBB81B00A9E7BF /* StreamReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B8F860620FBB81B00A9E7BF /* StreamReader.framework */; };
 		5BC7669220E425AC0081C580 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC7669120E425AC0081C580 /* CoreDataStack.swift */; };
 		5BC7669520E42B6D0081C580 /* DatabaseModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5BC7669320E42B6D0081C580 /* DatabaseModel.xcdatamodeld */; };
 		5BC7669A20E436520081C580 /* GenericDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC7669920E436520081C580 /* GenericDao.swift */; };
-		5BC766AA20E50A330081C580 /* SchedulingTimestamp+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC766A820E50A330081C580 /* SchedulingTimestamp+CoreDataClass.swift */; };
-		5BC766AB20E50A330081C580 /* SchedulingTimestamp+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC766A920E50A330081C580 /* SchedulingTimestamp+CoreDataProperties.swift */; };
-		5BC766AD20E50BDF0081C580 /* SchedulingTimestampDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC766AC20E50BDF0081C580 /* SchedulingTimestampDao.swift */; };
+		5BC766AD20E50BDF0081C580 /* QuoteEventDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC766AC20E50BDF0081C580 /* QuoteEventDao.swift */; };
 		5BC766B120E519B30081C580 /* MockRandomQuoteDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC766AE20E519B20081C580 /* MockRandomQuoteDataProvider.swift */; };
 		5BC766B220E519B30081C580 /* MockUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC766AF20E519B30081C580 /* MockUserNotificationCenter.swift */; };
 		5BC766B320E519B30081C580 /* NotificationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC766B020E519B30081C580 /* NotificationServiceTests.swift */; };
@@ -54,12 +55,13 @@
 		5B3C865720DD5542008764AB /* ServiceRegistry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceRegistry.swift; sourceTree = "<group>"; };
 		5B3C865A20DD5A49008764AB /* QuoteDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteDataProvider.swift; sourceTree = "<group>"; };
 		5B3C866020DD5ED0008764AB /* Quotes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Quotes.txt; sourceTree = "<group>"; };
+		5B8F860020FBB75F00A9E7BF /* QuoteEvent+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "QuoteEvent+CoreDataClass.swift"; path = "/Users/martin/Dev/Projects/Though/Services/Services/Database/Model/QuoteEvent+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		5B8F860120FBB75F00A9E7BF /* QuoteEvent+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "QuoteEvent+CoreDataProperties.swift"; path = "/Users/martin/Dev/Projects/Though/Services/Services/Database/Model/QuoteEvent+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		5B8F860620FBB81B00A9E7BF /* StreamReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StreamReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BC7669120E425AC0081C580 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		5BC7669420E42B6D0081C580 /* DatabaseModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DatabaseModel.xcdatamodel; sourceTree = "<group>"; };
 		5BC7669920E436520081C580 /* GenericDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericDao.swift; sourceTree = "<group>"; };
-		5BC766A820E50A330081C580 /* SchedulingTimestamp+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SchedulingTimestamp+CoreDataClass.swift"; sourceTree = "<group>"; };
-		5BC766A920E50A330081C580 /* SchedulingTimestamp+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SchedulingTimestamp+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		5BC766AC20E50BDF0081C580 /* SchedulingTimestampDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulingTimestampDao.swift; sourceTree = "<group>"; };
+		5BC766AC20E50BDF0081C580 /* QuoteEventDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteEventDao.swift; sourceTree = "<group>"; };
 		5BC766AE20E519B20081C580 /* MockRandomQuoteDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRandomQuoteDataProvider.swift; sourceTree = "<group>"; };
 		5BC766AF20E519B30081C580 /* MockUserNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserNotificationCenter.swift; sourceTree = "<group>"; };
 		5BC766B020E519B30081C580 /* NotificationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationServiceTests.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B8F860720FBB81B00A9E7BF /* StreamReader.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +169,7 @@
 		5B3C865C20DD5A74008764AB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5B8F860620FBB81B00A9E7BF /* StreamReader.framework */,
 				5BC766C820E57FC20081C580 /* StreamReader.framework */,
 			);
 			name = Frameworks;
@@ -186,7 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				5BC7669920E436520081C580 /* GenericDao.swift */,
-				5BC766AC20E50BDF0081C580 /* SchedulingTimestampDao.swift */,
+				5BC766AC20E50BDF0081C580 /* QuoteEventDao.swift */,
 			);
 			path = DAO;
 			sourceTree = "<group>";
@@ -194,8 +198,8 @@
 		5BC7669B20E502DD0081C580 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5BC766A820E50A330081C580 /* SchedulingTimestamp+CoreDataClass.swift */,
-				5BC766A920E50A330081C580 /* SchedulingTimestamp+CoreDataProperties.swift */,
+				5B8F860020FBB75F00A9E7BF /* QuoteEvent+CoreDataClass.swift */,
+				5B8F860120FBB75F00A9E7BF /* QuoteEvent+CoreDataProperties.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -329,16 +333,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BC7669520E42B6D0081C580 /* DatabaseModel.xcdatamodeld in Sources */,
-				5BC766AB20E50A330081C580 /* SchedulingTimestamp+CoreDataProperties.swift in Sources */,
+				5B8F860320FBB76000A9E7BF /* QuoteEvent+CoreDataProperties.swift in Sources */,
 				5BC7669220E425AC0081C580 /* CoreDataStack.swift in Sources */,
-				5BC766AA20E50A330081C580 /* SchedulingTimestamp+CoreDataClass.swift in Sources */,
 				5B3C864B20DD45C5008764AB /* QuoteNotificationFactory.swift in Sources */,
 				5BC7669A20E436520081C580 /* GenericDao.swift in Sources */,
 				5B3C864D20DD45C5008764AB /* UpdateService.swift in Sources */,
 				5B3C865820DD5542008764AB /* ServiceRegistry.swift in Sources */,
 				5B3C865F20DD5C47008764AB /* FileLogger.swift in Sources */,
 				5B3C865B20DD5A49008764AB /* QuoteDataProvider.swift in Sources */,
-				5BC766AD20E50BDF0081C580 /* SchedulingTimestampDao.swift in Sources */,
+				5B8F860220FBB76000A9E7BF /* QuoteEvent+CoreDataClass.swift in Sources */,
+				5BC766AD20E50BDF0081C580 /* QuoteEventDao.swift in Sources */,
 				5B3C864A20DD45C5008764AB /* NotificationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

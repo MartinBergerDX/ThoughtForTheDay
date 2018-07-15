@@ -41,11 +41,11 @@ class TriggersTableController: NSObject {
 extension TriggersTableController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let index: Int = indexPath.row
-        let schedulingTimestamp: SchedulingTimestamp = self.dataProvider.object(at: index)
+        let quoteEvent: QuoteEvent = self.dataProvider.object(at: index)
         let cell: TriggersTableViewCell = tableView.dequeueReusableCell(withIdentifier: String.init(describing: TriggersTableViewCell.self)) as! TriggersTableViewCell
         var dateCmp: DateComponents = DateComponents.init()
-        dateCmp.hour = Int(schedulingTimestamp.hour ?? "")
-        dateCmp.minute = Int(schedulingTimestamp.minute ?? "")
+        dateCmp.hour = Int(quoteEvent.hour ?? "")
+        dateCmp.minute = Int(quoteEvent.minute ?? "")
         let date: Date = Calendar.autoupdatingCurrent.date(from: dateCmp)!
         let time: String = DateUtils.shared.dateFormatter.string(from: date)
         cell.show(time: time)
