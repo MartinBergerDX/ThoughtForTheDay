@@ -30,12 +30,14 @@ class MockRandomQuoteDataProvider: NSObject, RandomQuoteDataProviderProtocol {
         return quotes
     }
     
-    func popRandomQuote() -> String {
+    func pop() -> String {
         let index: Int = Int(arc4random_uniform(UInt32(self.quotes.count)))
         let quote = self.quotes[index]
         self.quotes.remove(at: index)
         return quote
     }
     
-    
+    func push(quote: String) {
+        self.quotes.append(quote)
+    }
 }

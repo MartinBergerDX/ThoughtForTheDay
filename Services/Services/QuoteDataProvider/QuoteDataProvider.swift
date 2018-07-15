@@ -19,7 +19,8 @@ public protocol IndexedQuoteDataProviderProtocol: QuoteDataProviderProtocol {
 }
 
 public protocol RandomQuoteDataProviderProtocol: QuoteDataProviderProtocol {
-    func popRandomQuote() -> String
+    func pop() -> String
+    func push(quote: String)
 }
 
 public class QuoteDataProvider: QuoteDataProviderProtocol {
@@ -70,7 +71,7 @@ extension QuoteDataProvider: IndexedQuoteDataProviderProtocol {
 }
 
 extension QuoteDataProvider: RandomQuoteDataProviderProtocol {
-    public func popRandomQuote() -> String {
+    public func pop() -> String {
         if (self.quotes.count == 0) {
             loadQuotes()
         }
@@ -78,5 +79,9 @@ extension QuoteDataProvider: RandomQuoteDataProviderProtocol {
         let quote: String = self.quotes[index]
         self.quotes.remove(at: index)
         return quote
+    }
+    
+    public func push(quote: String) {
+        self.quotes.append(quote)
     }
 }

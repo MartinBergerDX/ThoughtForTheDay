@@ -10,19 +10,21 @@ import Foundation
 import UIKit
 import Services
 
-class TriggersTableController: NSObject, UITableViewDataSource {
+class TriggersTableController: NSObject {
     static let null: TriggersTableController = TriggersTableController.init()
     var tableView: UITableView = UITableView.init()
-    var timestamps: [SchedulingTimestamp] = []
+    var dataProvider: TriggersDataProvider = TriggersDataProvider()
     
     override init() {
         super.init()
     }
     
-    init(tableView: UITableView) {
+    init(tableView: UITableView, dataProvider: TriggersDataProvider) {
         super.init()
         self.tableView = tableView;
         tableView.dataSource = self
+        tableView.delegate = self
+        self.dataProvider = dataProvider
         registerCells()
     }
     
@@ -31,13 +33,15 @@ class TriggersTableController: NSObject, UITableViewDataSource {
     }
     
     func refreshTriggers() {
-        self.timestamps = SchedulingTimestampDao().findAll()
+        self.dataProvider.load()
         self.tableView.reloadData()
     }
-    
+}
+
+extension TriggersTableController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let index: Int = indexPath.row
-        let schedulingTimestamp: SchedulingTimestamp = self.timestamps[index]
+        let schedulingTimestamp: SchedulingTimestamp = self.dataProvider.object(at: index)
         let cell: TriggersTableViewCell = tableView.dequeueReusableCell(withIdentifier: String.init(describing: TriggersTableViewCell.self)) as! TriggersTableViewCell
         var dateCmp: DateComponents = DateComponents.init()
         dateCmp.hour = Int(schedulingTimestamp.hour ?? "")
@@ -53,6 +57,23 @@ class TriggersTableController: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.timestamps.count
+        return self.dataProvider.count()
+    }
+}
+
+extension TriggersTableController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.dataProvider.setToCancel(indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
     }
 }

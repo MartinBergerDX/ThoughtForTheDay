@@ -18,12 +18,16 @@
 		5B57632020EE2E9E00970D4C /* SelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B57631F20EE2E9E00970D4C /* SelectorViewController.swift */; };
 		5B57632420EE3E7900970D4C /* UIViewControllerSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B57632320EE3E7900970D4C /* UIViewControllerSetup.swift */; };
 		5B695D9320D1464B00D4DBDC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B695D9220D1464B00D4DBDC /* Images.xcassets */; };
+		5B8F85FE20FBA93E00A9E7BF /* StreamReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B8F85FC20FBA93600A9E7BF /* StreamReader.framework */; };
+		5B8F85FF20FBA93E00A9E7BF /* StreamReader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B8F85FC20FBA93600A9E7BF /* StreamReader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5BB4A35720CEB85B00AFC21E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BB4A35320CEB85B00AFC21E /* LaunchScreen.storyboard */; };
 		5BB4A35820CEB85B00AFC21E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BB4A35520CEB85B00AFC21E /* Main.storyboard */; };
+		5BC084B220FB9C8B00DD0A31 /* TriggersDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC084B120FB9C8B00DD0A31 /* TriggersDataProvider.swift */; };
+		5BC084B320FBA24D00DD0A31 /* Services.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BC766C620E57F080081C580 /* Services.framework */; };
+		5BC084B420FBA24D00DD0A31 /* Services.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5BC766C620E57F080081C580 /* Services.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5BC7668A20E29B870081C580 /* TriggersTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC7668920E29B860081C580 /* TriggersTableController.swift */; };
 		5BC7668D20E29DFF0081C580 /* TriggersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC7668C20E29DFF0081C580 /* TriggersTableViewCell.swift */; };
 		5BC7668F20E29E0A0081C580 /* TriggersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BC7668E20E29E0A0081C580 /* TriggersTableViewCell.xib */; };
-		5BC766C720E57F080081C580 /* Services.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BC766C620E57F080081C580 /* Services.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +47,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				5BC084B420FBA24D00DD0A31 /* Services.framework in Embed Frameworks */,
+				5B8F85FF20FBA93E00A9E7BF /* StreamReader.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -62,9 +68,11 @@
 		5B57631F20EE2E9E00970D4C /* SelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorViewController.swift; sourceTree = "<group>"; };
 		5B57632320EE3E7900970D4C /* UIViewControllerSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerSetup.swift; sourceTree = "<group>"; };
 		5B695D9220D1464B00D4DBDC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		5B8F85FC20FBA93600A9E7BF /* StreamReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StreamReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BB4A35420CEB85B00AFC21E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ThoughtForTheDay/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BB4A35620CEB85B00AFC21E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ThoughtForTheDay/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5BB4A35920CEB86700AFC21E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BC084B120FB9C8B00DD0A31 /* TriggersDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriggersDataProvider.swift; sourceTree = "<group>"; };
 		5BC7668920E29B860081C580 /* TriggersTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriggersTableController.swift; sourceTree = "<group>"; };
 		5BC7668C20E29DFF0081C580 /* TriggersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriggersTableViewCell.swift; sourceTree = "<group>"; };
 		5BC7668E20E29E0A0081C580 /* TriggersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TriggersTableViewCell.xib; sourceTree = "<group>"; };
@@ -78,8 +86,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BC766C720E57F080081C580 /* Services.framework in Frameworks */,
+				5BC084B320FBA24D00DD0A31 /* Services.framework in Frameworks */,
 				5B3C866620DEB9CE008764AB /* PureLayout.framework in Frameworks */,
+				5B8F85FE20FBA93E00A9E7BF /* StreamReader.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +156,7 @@
 		5B1D8D5D20D0225300DF447D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5B8F85FC20FBA93600A9E7BF /* StreamReader.framework */,
 				5BC766C620E57F080081C580 /* Services.framework */,
 				5B3C866520DEB9CE008764AB /* PureLayout.framework */,
 			);
@@ -158,6 +168,7 @@
 			children = (
 				5B3C866320DEA813008764AB /* TriggersViewController.swift */,
 				5BC7668920E29B860081C580 /* TriggersTableController.swift */,
+				5BC084B120FB9C8B00DD0A31 /* TriggersDataProvider.swift */,
 				5BC7668B20E29DDE0081C580 /* Cell */,
 			);
 			path = TriggersViewController;
@@ -338,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B07241820B9BCD9000B3B16 /* QuoteTableController.swift in Sources */,
+				5BC084B220FB9C8B00DD0A31 /* TriggersDataProvider.swift in Sources */,
 				5BC7668A20E29B870081C580 /* TriggersTableController.swift in Sources */,
 				5B07240620B986E7000B3B16 /* QuoteViewController.swift in Sources */,
 				5BC7668D20E29DFF0081C580 /* TriggersTableViewCell.swift in Sources */,
@@ -504,6 +516,7 @@
 		5B07241320B986E8000B3B16 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
@@ -528,6 +541,7 @@
 		5B07241420B986E8000B3B16 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;

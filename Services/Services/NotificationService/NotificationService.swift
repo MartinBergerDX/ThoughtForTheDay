@@ -12,6 +12,7 @@ import UserNotifications
 
 public protocol TDNotificationServiceProtocol {
     func scheduleImperialWisdom()
+    func reschedule()
     func register()
 }
 
@@ -38,11 +39,18 @@ class NotificationService: NSObject, TDNotificationServiceProtocol {
         self.notificationCenter = notificationCenter
     }
     
-    public func scheduleImperialWisdom() {
-        self.notificationCenter!.getPendingNotificationRequests { [unowned self] (pendingNotificationRequests: [UNNotificationRequest]) in
-            self.scheduledNotificationRequests = pendingNotificationRequests.filter({ $0.content.categoryIdentifier == QuoteNotificationFactory.categoryIdentifier })
-            self.scheduleIfNeeded()
+    fileprivate func filteredPendingNotificationRequests(completionHandler: @escaping ([UNNotificationRequest]) -> Void) {
+        self.notificationCenter!.getPendingNotificationRequests { (pendingNotificationRequests: [UNNotificationRequest]) in
+            let filtered = pendingNotificationRequests.filter({ $0.content.categoryIdentifier == QuoteNotificationFactory.categoryIdentifier })
+            completionHandler(filtered)
         }
+    }
+    
+    public func scheduleImperialWisdom() {
+        filteredPendingNotificationRequests(completionHandler: { [unowned self] (filteredPending: [UNNotificationRequest]) in
+            self.scheduledNotificationRequests = filteredPending
+            self.scheduleIfNeeded()
+        })
     }
     
     fileprivate func scheduleIfNeeded() {
@@ -82,20 +90,27 @@ class NotificationService: NSObject, TDNotificationServiceProtocol {
     
     fileprivate func scheduleNotifications() {
         loadSomeDates()
-        let scheduledTimestamps = SchedulingTimestampDao.init().findAllSortedAscending()
-        var remainingToSchedule = countNotificationsToSchedule()
-        while remainingToSchedule > 0 {
+        let scheduled = SchedulingTimestampDao.init().findAllSortedAscending()
+        if (scheduled.count == 0) {
+            return
+        }
+        var remaining = countNotificationsToSchedule()
+        while remaining > 0 {
             let date: Date = self.dates.removeFirst()
-            for timestamp: SchedulingTimestamp in scheduledTimestamps {
-                let quote: String = self.dataProvider.popRandomQuote()
+            for timestamp: SchedulingTimestamp in scheduled {
+                let quote: String = self.dataProvider.pop()
                 let trigger: UNCalendarNotificationTrigger = notificationTrigger(for: date, timestamp: timestamp)
                 let request = self.quoteNotificationFactory.imperialQuote(imperialQuote: quote, trigger: trigger)
                 self.schedule(request: request)
-                remainingToSchedule -= 1
-                if (remainingToSchedule == 0) {
+                remaining -= 1
+                if (remaining == 0) {
                     break
                 }
             }
+        }
+        
+        filteredPendingNotificationRequests { (requests: [UNNotificationRequest]) in
+            self.printScheduled(requests: requests)
         }
     }
     
@@ -109,11 +124,13 @@ class NotificationService: NSObject, TDNotificationServiceProtocol {
     }
     
     fileprivate func loadSomeDates() {
-        self.dates = []
+        self.dates.removeAll()
+        self.dates.append(self.startDate)
         var components: DateComponents = DateComponents.init()
         components.hour = 0
+        components.minute = 0
         var remaining = NotificationService.maxNotifications
-        Calendar.autoupdatingCurrent.enumerateDates(startingAfter: startDate, matching: components, matchingPolicy: Calendar.MatchingPolicy.nextTime, using: { (date: Date?, unknown: Bool, stop: inout Bool) in
+        Calendar.autoupdatingCurrent.enumerateDates(startingAfter: self.startDate, matching: components, matchingPolicy: Calendar.MatchingPolicy.nextTime, using: { (date: Date?, unknown: Bool, stop: inout Bool) in
             guard let theDate = date else {
                 return
             }
@@ -166,11 +183,25 @@ class NotificationService: NSObject, TDNotificationServiceProtocol {
             }
         }
     }
+    
+    public func reschedule() {
+        filteredPendingNotificationRequests { [unowned self] (filteredPending: [UNNotificationRequest]) in
+            var identifiers: [String] = []
+            for request: UNNotificationRequest in filteredPending {
+                let quote: String = request.content.body
+                self.dataProvider.push(quote: quote)
+                identifiers.append(request.identifier)
+            }
+            self.notificationCenter?.removePendingNotificationRequests(withIdentifiers: identifiers)
+            self.scheduleImperialWisdom()
+        }
+    }
 }
 
 protocol UserNotificationCenterProtocol {
     func add(_ request: UNNotificationRequest, withCompletionHandler completionHandler: ((Error?) -> Void)?)
     func getPendingNotificationRequests(completionHandler: @escaping ([UNNotificationRequest]) -> Void)
+    func removePendingNotificationRequests(withIdentifiers identifiers: [String])
 }
 
 extension UNUserNotificationCenter: UserNotificationCenterProtocol {

@@ -10,8 +10,8 @@ import Foundation
 import UserNotifications
 
 class QuoteNotificationFactory {
-    internal static let title: String = "Imperial Wisdom for this Holy Day"
     internal static let categoryIdentifier = "ImperialQuote"
+    internal static let title: String = "Imperial Wisdom for this Holy Day"
     
     func imperialQuote(imperialQuote: String, trigger: UNCalendarNotificationTrigger) -> UNNotificationRequest {
         let content = UNMutableNotificationContent()

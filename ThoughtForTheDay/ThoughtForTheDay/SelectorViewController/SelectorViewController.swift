@@ -59,6 +59,7 @@ class SelectorViewController: UIViewController {
         entity.hour = hour
         entity.minute = minute
         let _ = dao.saveToPersistentStore()
+        ServiceRegistry.shared.notification.reschedule()
         self.navigationController?.popViewController(animated: true)
     }
     

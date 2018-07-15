@@ -22,6 +22,10 @@ class MockUserNotificationCenter: NSObject, UserNotificationCenterProtocol {
         completionHandler?(nil)
     }
     
+    func removePendingNotificationRequests(withIdentifiers identifiers: [String]) {
+        
+    }
+    
     func count() -> Int {
         return self.requests.count
     }

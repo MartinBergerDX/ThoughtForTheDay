@@ -90,6 +90,6 @@ class NotificationServiceTests: XCTestCase {
             self.notificationService.scheduleImperialWisdom()
             self.notificationCenter.fire(notifications: NotificationService.maxNotifications)
         }
-        XCTAssert(dataProvider.popRandomQuote().count > 0)
+        XCTAssert(dataProvider.pop().count > 0)
     }
 }
