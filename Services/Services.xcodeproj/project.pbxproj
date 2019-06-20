@@ -17,9 +17,9 @@
 		5B3C865B20DD5A49008764AB /* QuoteDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3C865A20DD5A49008764AB /* QuoteDataProvider.swift */; };
 		5B3C865F20DD5C47008764AB /* FileLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3C864E20DD45E0008764AB /* FileLogger.swift */; };
 		5B3C866120DD5ED0008764AB /* Quotes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5B3C866020DD5ED0008764AB /* Quotes.txt */; };
-		5B8F860220FBB76000A9E7BF /* QuoteEvent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8F860020FBB75F00A9E7BF /* QuoteEvent+CoreDataClass.swift */; };
-		5B8F860320FBB76000A9E7BF /* QuoteEvent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8F860120FBB75F00A9E7BF /* QuoteEvent+CoreDataProperties.swift */; };
 		5B8F860720FBB81B00A9E7BF /* StreamReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B8F860620FBB81B00A9E7BF /* StreamReader.framework */; };
+		5BB9E44822BBE5910031A3B1 /* QuoteEvent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9E44622BBE5910031A3B1 /* QuoteEvent+CoreDataProperties.swift */; };
+		5BB9E44922BBE5910031A3B1 /* QuoteEvent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9E44722BBE5910031A3B1 /* QuoteEvent+CoreDataClass.swift */; };
 		5BC7669220E425AC0081C580 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC7669120E425AC0081C580 /* CoreDataStack.swift */; };
 		5BC7669520E42B6D0081C580 /* DatabaseModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5BC7669320E42B6D0081C580 /* DatabaseModel.xcdatamodeld */; };
 		5BC7669A20E436520081C580 /* GenericDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC7669920E436520081C580 /* GenericDao.swift */; };
@@ -55,9 +55,9 @@
 		5B3C865720DD5542008764AB /* ServiceRegistry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceRegistry.swift; sourceTree = "<group>"; };
 		5B3C865A20DD5A49008764AB /* QuoteDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteDataProvider.swift; sourceTree = "<group>"; };
 		5B3C866020DD5ED0008764AB /* Quotes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Quotes.txt; sourceTree = "<group>"; };
-		5B8F860020FBB75F00A9E7BF /* QuoteEvent+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "QuoteEvent+CoreDataClass.swift"; path = "/Users/martin/Dev/Projects/Though/Services/Services/Database/Model/QuoteEvent+CoreDataClass.swift"; sourceTree = "<absolute>"; };
-		5B8F860120FBB75F00A9E7BF /* QuoteEvent+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "QuoteEvent+CoreDataProperties.swift"; path = "/Users/martin/Dev/Projects/Though/Services/Services/Database/Model/QuoteEvent+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		5B8F860620FBB81B00A9E7BF /* StreamReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StreamReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BB9E44622BBE5910031A3B1 /* QuoteEvent+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "QuoteEvent+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5BB9E44722BBE5910031A3B1 /* QuoteEvent+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "QuoteEvent+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5BC7669120E425AC0081C580 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		5BC7669420E42B6D0081C580 /* DatabaseModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DatabaseModel.xcdatamodel; sourceTree = "<group>"; };
 		5BC7669920E436520081C580 /* GenericDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericDao.swift; sourceTree = "<group>"; };
@@ -198,8 +198,8 @@
 		5BC7669B20E502DD0081C580 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5B8F860020FBB75F00A9E7BF /* QuoteEvent+CoreDataClass.swift */,
-				5B8F860120FBB75F00A9E7BF /* QuoteEvent+CoreDataProperties.swift */,
+				5BB9E44722BBE5910031A3B1 /* QuoteEvent+CoreDataClass.swift */,
+				5BB9E44622BBE5910031A3B1 /* QuoteEvent+CoreDataProperties.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -333,17 +333,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BC7669520E42B6D0081C580 /* DatabaseModel.xcdatamodeld in Sources */,
-				5B8F860320FBB76000A9E7BF /* QuoteEvent+CoreDataProperties.swift in Sources */,
 				5BC7669220E425AC0081C580 /* CoreDataStack.swift in Sources */,
 				5B3C864B20DD45C5008764AB /* QuoteNotificationFactory.swift in Sources */,
 				5BC7669A20E436520081C580 /* GenericDao.swift in Sources */,
 				5B3C864D20DD45C5008764AB /* UpdateService.swift in Sources */,
+				5BB9E44822BBE5910031A3B1 /* QuoteEvent+CoreDataProperties.swift in Sources */,
 				5B3C865820DD5542008764AB /* ServiceRegistry.swift in Sources */,
 				5B3C865F20DD5C47008764AB /* FileLogger.swift in Sources */,
 				5B3C865B20DD5A49008764AB /* QuoteDataProvider.swift in Sources */,
-				5B8F860220FBB76000A9E7BF /* QuoteEvent+CoreDataClass.swift in Sources */,
 				5BC766AD20E50BDF0081C580 /* QuoteEventDao.swift in Sources */,
 				5B3C864A20DD45C5008764AB /* NotificationService.swift in Sources */,
+				5BB9E44922BBE5910031A3B1 /* QuoteEvent+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +428,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -484,6 +485,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
